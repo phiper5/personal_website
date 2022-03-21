@@ -13,10 +13,9 @@
 }
 
 /* The sidebar links */
-.sidebar a {
+.sidebar a, h1 {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -41,7 +40,7 @@
 
 /* The button used to open the sidebar */
 .sidebar-button {
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     background-color: #111;
     color: white;
@@ -59,9 +58,10 @@
     transition: margin-left .5s; /* If you want a transition effect */
 }
 
-/* On smaller screens, where height is less than 450px, change the
- * style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+/* Image width+margin hardcoded to default sidebar width of 250px */
+#headshot-picture {
+    width: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 50px;
 }
