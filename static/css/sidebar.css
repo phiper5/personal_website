@@ -27,17 +27,20 @@
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
-.sidebar .closebtn {
+.open-button {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+.close-button {
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    top: 5px;
+    left: 5px;
 }
 
 /* The button used to open the sidebar */
-.openbtn {
+.sidebar-button {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
@@ -46,15 +49,14 @@
     border: none;
 }
 
-.openbtn:hover {
+.sidebar-button:hover {
     background-color: #444;
 }
 
-/* Style page content - use this if you want to push the page content 
+/* Style page content - use this if you want to push the page content
  * to the right when you open the side navigation */
 #main {
     transition: margin-left .5s; /* If you want a transition effect */
-    padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the

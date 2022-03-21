@@ -2,24 +2,27 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/static/sidebar.css">
-    <script src="/static/sidebar.js"></script>
-    <title>Test</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/sidebar.css">
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+    <script src="/static/js/sidebar.js"></script>
+    <title>{{ title }}</title>
 </head>
 
 <body>
 
-<div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+<button class="sidebar-button open-button" onclick="openNav()">&#9776;</button>
+
+<div id="main-sidebar" class="sidebar">
+    <button class="sidebar-button close-button" onclick="closeNav()">&#9776;</button>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Publications</a>
+    <a href="#">Book&nbsp;Reviews</a>
+    <a href="#">Curriculum&nbsp;Vitae</a>
 </div>
 
 <div id="main">
-    <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
-
     {% block main %}
     {% endblock %}
 </div>
