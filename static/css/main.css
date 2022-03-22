@@ -1,3 +1,33 @@
+body {
+    font-family: Arial;
+    letter-spacing: 1px;
+    line-height: 1.35914091423;
+}
+
+body a {
+    text-decoration: none;
+}
+
+figcaption {
+    color: #777777;
+}
+
 #main {
     padding: 1% 10%;
+}
+
+#main h1 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #888;
+    padding-bottom: 15px;
+}
+
+#home-landscape {
+    padding: 50px 15px;
+}
+
+#home-landscape-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }

@@ -2,31 +2,39 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet"
+        href="/static/fontawesome-free-6.1.0-web/css/all.min.css">
+    <link rel="stylesheet"
+        href="/static/bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/sidebar.css">
     <script src="/static/js/jquery-3.6.0.min.js"></script>
+    <script src="/static/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js">
+    </script>
     <script src="/static/js/sidebar.js"></script>
     <title>{{ title }}</title>
 </head>
 
 <body>
 
-<button class="sidebar-button open-button" onclick="openNav()">&#9776;</button>
+<button class="sidebar-button open-button" onclick="sidebarOpen()">&#9776;</button>
 
 <div id="main-sidebar" class="sidebar">
     <button class="sidebar-button close-button"
-        onclick="closeNav()">&#9776;</button>
+        onclick="sidebarClose()">&#9776;</button>
 
     <div id="headshot">
         <img id="headshot-picture" src="/static/img/headshot.jpg">
         <h1 id="headshot-text">Philip&nbsp;Piper</h1>
     </div>
 
-    <a href="#">Home</a>
-    <a href="#">Projects</a>
-    <a href="#">Publications</a>
-    <a href="#">Book&nbsp;Reviews</a>
-    <a href="#">Curriculum&nbsp;Vitae</a>
+    <a {% if title == 'Home' %} class="sidebar-active" {% endif %}
+        href="/">Home</a>
+    <a href="/projects">Projects</a>
+    <a href="/publications">Publications</a>
+    <a href="/books">Book&nbsp;Reviews</a>
+    <a href="/hobbies">Hobbies</a>
+    <a href="/cv">Curriculum&nbsp;Vitae</a>
 </div>
 
 <div id="main">
