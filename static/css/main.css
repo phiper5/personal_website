@@ -1,6 +1,5 @@
 body {
     font-family: Arial;
-    letter-spacing: 1px;
     line-height: 1.35914091423;
 }
 
@@ -30,4 +29,8 @@ figcaption {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+#contact {
+    white-space: nowrap;
 }
