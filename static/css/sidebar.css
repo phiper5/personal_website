@@ -21,6 +21,10 @@
     transition: 0.3s;
 }
 
+.sidebar a {
+    font-size: 25.2px;
+}
+
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
     color: #f1f1f1;

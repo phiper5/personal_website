@@ -21,7 +21,7 @@
 
 <div id="main-sidebar" class="sidebar">
     <button class="sidebar-button close-button"
-        onclick="sidebarClose()">&#9776;</button>
+        onclick="sidebarClose(true)">&#9776;</button>
 
     <div id="headshot">
         <img id="headshot-picture" src="/static/img/headshot.jpg">
@@ -30,7 +30,8 @@
 
     <a {% if title == 'Home' %} class="sidebar-active" {% endif %}
         href="/">Home</a>
-    <a href="/projects">Projects</a>
+    <a {% if title == 'Projects' %} class="sidebar-active" {% endif %}
+        href="/projects">Projects</a>
     <a href="/publications">Publications</a>
     <a href="/books">Book&nbsp;Reviews</a>
     <a href="/hobbies">Hobbies</a>

@@ -3,33 +3,44 @@ $(document).ready(function() {
     $("#headshot-picture").css("width",
         (window.sidebarWidth-100).toString()+"px");
     window.sidebarState = $(window).width() >= 1000;
-    sidebarResize();
+    sidebarResize(false);
 });
 
 $(window).on("resize", function() {
     clearTimeout(window.sidebarTimer);
-    window.sidebarTimer = setTimeout(sidebarResize, 200);
+    window.sidebarTimer = setTimeout(function() {sidebarResize(true)}, 200);
 });
 
 /* Set the width of the sidebar to 250px and the left margin of the page
  * content to 250px */
 function sidebarOpen() {
     window.sidebarState = 1;
-    sidebarResize();
+    sidebarResize(true);
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page
  * content to 0 */
-function sidebarClose() {
+function sidebarClose(animation) {
+    updateTransition(animation);
     window.sidebarState = 0;
     $("#main-sidebar").css("width", "0");
     $("#main").css("marginLeft", "0");
 }
 
-function sidebarResize() {
+function updateTransition(animation) {
+    // No animations if specified
+    transition = (animation * 0.5).toString() + "s";
+    $(".sidebar").css("transition", transition.toString());
+    $("#main").css("transition", "margin-left " + transition.toString());
+}
+
+function sidebarResize(animation) {
     // Skip if the sidebar is off
     if (!window.sidebarState)
         return;
+
+    // Setup transition
+    updateTransition(animation);
 
     // Resize the window
     if ($(window).width() < 768) {
