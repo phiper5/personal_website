@@ -12,17 +12,12 @@ figcaption {
 }
 
 #main {
-    padding: 1% 10%;
+    padding: 50px 10%;
 }
 
 #main h1 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #888;
-    padding-bottom: 15px;
-}
-
-#home-landscape {
-    padding: 50px 15px;
 }
 
 .image-filled {
