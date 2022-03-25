@@ -9,48 +9,24 @@
 </div>
 </div>
 
-<div class="row">
-<div class="col-md-3 py-3">
-    <a href="/projects/bulldogs-racing">
-    <div class="image-container">
-        <img class="image-filled" src="/static/img/bulldogs-racing.jpg">
-        <div class="image-text">Bulldogs<br>Racing</div>
+{% for p_html in project_htmls %}
+    {% if loop.index0 % 4 == 0 %}
+        {% if loop.index0 > 0 %}
+            </div>
+        {% endif %}
+        <div class="row">
+    {% endif %}
+    <div class="col-md-3 py-3">
+        <a href="{{ project_links[loop.index0] }}">
+        <div class="image-container">
+            <img class="image-filled" src="{{ project_pics[loop.index0] }}">
+            <div class="image-text">{{ p_html|safe }}</div>
+        </div>
+        </a>
     </div>
-    </a>
-</div>
-<div class="col-md-3 my-3">
-    <div class="image-container">
-        <img class="image-filled" src="/static/img/big-friendly-flame.jpg">
-        <div class="image-text">Big<br>Friendly<br>Flame</div>
+{% endfor %}
+{% if project_htmls|length > 0 %}
     </div>
-</div>
-<div class="col-md-3 my-3">
-    <div class="image-container">
-        <img class="image-filled" src="/static/img/liquid-rocketry-offset.jpg">
-        <div class="image-text">Liquid<br>Rocketry</div>
-    </div>
-</div>
-<div class="col-md-3 my-3">
-    <div class="image-container">
-        <img class="image-filled" src="/static/img/mon-freeze.jpg">
-        <div class="image-text">Propellant<br>Characterization</div>
-    </div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-3 my-3">
-    <img class="image-filled" src="/static/img/bulldogs-racing.jpg">
-</div>
-<div class="col-md-3 my-3">
-    <img class="image-filled" src="/static/img/big-friendly-flame.jpg">
-</div>
-<div class="col-md-3 my-3">
-    <img class="image-filled" src="/static/img/bulldogs-racing.jpg">
-</div>
-<div class="col-md-3 my-3">
-    <img class="image-filled" src="/static/img/bulldogs-racing.jpg">
-</div>
-</div>
+{% endif %}
 
 {% endblock %}
