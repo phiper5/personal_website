@@ -27,7 +27,8 @@ def page_home():
 @app.route('/projects')
 def page_projects():
     project_strs = [x.lower().replace(' ', '-') for x in projects]
-    project_pics = ['/static/img/projects/'+x+'.jpg' for x in project_strs]
+    project_pics = ['/static/img/projects/'+x+'/'+x+'.jpg' \
+            for x in project_strs]
     project_links = ['/projects/'+x for x in project_strs]
     project_htmls = [x.replace(' ', '<br>') for x in projects]
     return render_template('projects.html', title="Projects", \
