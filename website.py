@@ -6,18 +6,19 @@ from flask import Flask, render_template, abort
 app = Flask(__name__)
 
 projects = [ \
-        "Bulldogs Racing Mechanical", \
-        "Bulldogs Racing Electrical", \
         "Big Friendly Flame", \
         "Liquid Rocketry", \
+        "Bulldogs Racing Mechanical", \
+        "Bulldogs Racing Electrical", \
         "Propellant Chemistry", \
         "CELI Fellow", \
         "Surf CV", \
         "Vehicle CV", \
-        "MATLAB CEA", \
-        "Altitude Solver", \
         "Incompressible CFD", \
         "Hypergolic Combustion CFD", \
+        "MATLAB CEA", \
+        "Altitude Solver", \
+        "Bluetooth Headphones", \
         ]
 
 @app.route('/')
