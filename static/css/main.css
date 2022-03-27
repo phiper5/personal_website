@@ -22,6 +22,10 @@ figcaption {
     display: block;
 }
 
+.image-filled:hover {
+    opacity: 50%;
+}
+
 .image-text {
     position: absolute;
     top: 0px;
@@ -30,6 +34,13 @@ figcaption {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 1% 5%;
+    color: #000000;
+    pointer-events: none;
+}
+
+.image-text-hover: {
+    padding-right: 0;
+    padding-bottom: 0;
 }
 
 .image-container {
