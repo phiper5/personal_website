@@ -5,12 +5,38 @@
 
 <h1>{{ title }}</h1>
 
+<div class="row">
+<div class="col-xl-6">
+    <p>
+    Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007. From 2015-2016 I was Chief Engineer of the team, during which time I lead design and fabrication of the suspension, steering, brakes, and chassis portions of the car.
+    </p>
+</div>
+<div class="col-xl-6">
+    <figure>
+    <img class="image-filled" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-2016.jpg">
+    <figcaption>Bulldogs Racing 2016 retro-style race car.</figcaption>
+    </figure>
+</div>
+</div>
+<div class="row">
+    {% for year in [2008, 2010, 2013, 2014] %}
+        <div class="col-md-6 col-xl-3">
+            <figure>
+                <img class="image-filled" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-{{ year }}.jpg">
+                <figcaption>Bulldogs Racing {{ year }}</figcaption>
+            </figure>
+        </div>
+    {% endfor %}
+</div>
+
 <h2>Tires</h2>
 
 <h2>Suspension</h2>
 
-<h2>Chassis</h2>
+<h2>Steering</h2>
 
-<h2>Vehicle Dynamics</h2>
+<h2>Brakes</h2>
+
+<h2>Chassis</h2>
 
 {% endblock %}

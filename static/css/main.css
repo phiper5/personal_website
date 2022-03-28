@@ -17,12 +17,12 @@ figcaption {
 }
 
 .image-filled {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
 }
 
-.image-filled:hover {
+.image-link:hover {
     opacity: 50%;
 }
 
@@ -36,11 +36,6 @@ figcaption {
     padding: 1% 5%;
     color: #000000;
     pointer-events: none;
-}
-
-.image-text-hover: {
-    padding-right: 0;
-    padding-bottom: 0;
 }
 
 .image-container {

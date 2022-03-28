@@ -16,10 +16,10 @@
         {% endif %}
         <div class="row">
     {% endif %}
-    <div class="col-md-3 py-3">
+    <div class="col-md-6 col-lg-4 col-xl-3 py-3">
         <a href="{{ project_links[loop.index0] }}">
         <div class="image-container">
-            <img class="image-filled" src="{{ project_pics[loop.index0] }}">
+            <img class="image-filled image-link" src="{{ project_pics[loop.index0] }}">
             <div class="image-text">{{ p_html|safe }}</div>
         </div>
         </a>
