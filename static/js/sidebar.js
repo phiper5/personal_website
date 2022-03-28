@@ -61,7 +61,7 @@ function sidebarResize(animation) {
 window.prevScrollPos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    if (window.prevScrollPos > currentScrollPos)
+    if (window.prevScrollPos > currentScrollPos || $(window).width() >= 768)
         $("#main-sidebar-button").css("top", "5px");
     else
         $("#main-sidebar-button").css("top", "-50px");

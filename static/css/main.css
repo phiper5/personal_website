@@ -45,3 +45,8 @@ figcaption {
 #contact {
     white-space: nowrap;
 }
+
+.vert-center {
+    display: flex;
+    align-items: center;
+}

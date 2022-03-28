@@ -8,10 +8,14 @@
 <div class="row">
 <div class="col-xl-6">
     <p>
-    Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007. From 2015-2016 I was Chief Engineer of the team, during which time I lead design and fabrication of the suspension, steering, brakes, and chassis portions of the car.
+    Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007.
+    </p>
+    <p>
+    From 2015-2016 I was Chief Engineer of the team, during which time I led design and fabrication of the suspension, steering, brakes, and chassis portions of the car. My approach for vehicle dynamics design started at the tires, then worked through suspension and chassis, and finished with steering and brakes.
     </p>
 </div>
-<div class="col-xl-6">
+<div class="col-xl-1"></div>
+<div class="col-xl-5 vert-center">
     <figure>
     <img class="image-filled" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-2016.jpg">
     <figcaption>Bulldogs Racing 2016 retro-style race car.</figcaption>
@@ -31,12 +35,35 @@
 
 <h2>Tires</h2>
 
+<p>
+Most of the forces exerted on and by a racecar go through the tires, as they are the only contact points between the vehicle and the ground. Additionally, Formula SAE specifies average speeds of 25 to 30 mph, which suggests limited aerodynamic forces on the car since downforce and drag force vary with velocity squared. Therefore, tire selection is crucial to vehicle performance and defines the rest of vehicle dynamics design.
+</p>
+<p>
+The Formula SAE Tire Test Consortium pools resources from teams to obtain high quality tire force and moment data for a selection of relevant tires. From this data, tire coefficients of friction can be fit for a variety of pressures, vertical loads, cambers, and slip angles to then determine the perfect tire fit for a given vehicle design. I completed the tire data analysis for Bulldogs Racing and determined that 6" wide front and 7.5" wide rear Hoosier tires offered the optimal performance for our projected 300 lb, 60% rear-weight biased car. I also found that a 0&#176; camber resulted in the highest coefficient of friction for the Hoosier tires, which was a primary input into the suspension design. Example raw tire data are shown below, with coefficient of friction (normalized Y force) dependend on the slip angle between the tire and direction of travel.
+</p>
+<div class="row d-flex justify-content-center">
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex justify-content-center">
+    <figure>
+    <img class="img-fluid" src="/static/img/projects/bulldogs-racing-mechanical/tire-data.jpg">
+    <figcaption style="text-align:center">Pacejka's magic formula fit of representative Hoosier tire data.</figcaption>
+    </figure>
+</div>
+<div class="col-xl-5 d-flex justify-content-center">
+    <figure>
+    <img class="img-fluid pb-xl-4" src="/static/img/projects/bulldogs-racing-mechanical/tire-closeup.jpg">
+    <figcaption style="text-align:center">Hoosier 7.5" wide tire installed on rear left of BR2016.</figcaption>
+    </figure>
+</div>
+<div class="col-xl-1"></div>
+</div>
+
 <h2>Suspension</h2>
+
+<h2>Chassis</h2>
 
 <h2>Steering</h2>
 
 <h2>Brakes</h2>
-
-<h2>Chassis</h2>
 
 {% endblock %}
