@@ -11,14 +11,14 @@
     Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007.
     </p>
     <p>
-    From 2015-2016 I was Chief Engineer of the team, during which time I led design and fabrication of the suspension, steering, brakes, and chassis portions of the car. My approach for vehicle dynamics design started at the tires, then worked through suspension and chassis, and finished with steering and brakes.
+    From 2015-2016 I was Chief Engineer of the team, during which time I led design and fabrication of the suspension, steering, brakes, and chassis portions of the car. My approach for vehicle dynamics design started at the <a href="#tires">tires</a>, then worked through <a href="#suspension">suspension</a> and <a href="#chassis">chassis</a>, and finished with <a href="#steering">steering</a> and <a href="#brakes">brakes</a>.
     </p>
 </div>
 <div class="col-xl-1"></div>
 <div class="col-xl-5 vert-center">
     <figure>
-    <img class="image-filled" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-2016.jpg">
-    <figcaption>Bulldogs Racing 2016 retro-style race car.</figcaption>
+    <img class="image-filled pb-1" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-2016.jpg">
+    <figcaption>Bulldogs Racing 2016</figcaption>
     </figure>
 </div>
 </div>
@@ -26,44 +26,52 @@
     {% for year in [2008, 2010, 2013, 2014] %}
         <div class="col-md-6 col-xl-3">
             <figure>
-                <img class="image-filled" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-{{ year }}.jpg">
+                <img class="image-filled pb-1" src="/static/img/projects/bulldogs-racing-mechanical/historical-car-{{ year }}.jpg">
                 <figcaption>Bulldogs Racing {{ year }}</figcaption>
             </figure>
         </div>
     {% endfor %}
 </div>
 
-<h2>Tires</h2>
+<h2 id="tires">Tires</h2>
 
 <p>
-Most of the forces exerted on and by a racecar go through the tires, as they are the only contact points between the vehicle and the ground. Additionally, Formula SAE specifies average speeds of 25 to 30 mph, which suggests limited aerodynamic forces on the car since downforce and drag force vary with velocity squared. Therefore, tire selection is crucial to vehicle performance and defines the rest of vehicle dynamics design.
+Most of the forces exerted on and by a racecar go through the tires, as they are the only contact points between the vehicle and the ground. Additionally, Formula SAE specifies average speeds of 25 to 30 mph, which suggests limited aerodynamic forces on the car since downforce and drag force vary with velocity squared. Tire selection is crucial to vehicle performance and defines the rest of vehicle dynamics design. I would highly suggest <a href="https://books.google.com/books/about/The_Racing_High_performance_Tire.html?id=oAbg-tWC4uAC">The Racing &amp; High-Performance Tire: Using Tires to Tune for Grip &amp; Balance</a> by Paul Haney; it greatly influenced my understanding of and approach to tire analysis.
 </p>
 <p>
-The Formula SAE Tire Test Consortium pools resources from teams to obtain high quality tire force and moment data for a selection of relevant tires. From this data, tire coefficients of friction can be fit for a variety of pressures, vertical loads, cambers, and slip angles to then determine the perfect tire fit for a given vehicle design. I completed the tire data analysis for Bulldogs Racing and determined that 6" wide front and 7.5" wide rear Hoosier tires offered the optimal performance for our projected 300 lb, 60% rear-weight biased car. I also found that a 0&#176; camber resulted in the highest coefficient of friction for the Hoosier tires, which was a primary input into the suspension design. Example raw tire data are shown below, with coefficient of friction (normalized Y force) dependend on the slip angle between the tire and direction of travel.
+The Formula SAE Tire Test Consortium pools resources from teams to obtain high quality tire force and moment data for a selection of relevant tires. From this data, tire coefficients of friction can be fit for a variety of pressures, vertical loads, cambers, and slip angles to then determine the perfect tire fit for a given vehicle design. I completed the tire data analysis for Bulldogs Racing and determined that 6 inch wide front and 7.5 inch wide rear Hoosier tires offered the optimal performance for our projected 300 lb, 60% rear-weight biased car. I also found that a 0&#176; camber resulted in the highest coefficient of friction for the Hoosier tires, which was a primary input into the suspension design. Example raw tire data are shown below, with coefficient of friction (normalized Y force minus one) dependend on the slip angle between the tire and direction of travel.
 </p>
-<div class="row d-flex justify-content-center">
-<div class="col-xl-1"></div>
-<div class="col-xl-5 d-flex justify-content-center">
-    <figure>
-    <img class="img-fluid" src="/static/img/projects/bulldogs-racing-mechanical/tire-data.jpg">
-    <figcaption style="text-align:center">Pacejka's magic formula fit of representative Hoosier tire data.</figcaption>
-    </figure>
-</div>
-<div class="col-xl-5 d-flex justify-content-center">
-    <figure>
-    <img class="img-fluid pb-xl-4" src="/static/img/projects/bulldogs-racing-mechanical/tire-closeup.jpg">
-    <figcaption style="text-align:center">Hoosier 7.5" wide tire installed on rear left of BR2016.</figcaption>
-    </figure>
-</div>
-<div class="col-xl-1"></div>
-</div>
 
-<h2>Suspension</h2>
+{% with left_src="/static/img/projects/bulldogs-racing-mechanical/tire-data.jpg", left_caption="Pacejka's magic formula fit of representative Hoosier tire data.", right_src="/static/img/projects/bulldogs-racing-mechanical/tire-closeup.jpg", right_caption="Hoosier 7.5 inch wide tire installed on the left rear of BR2016." %}
+    {% include "two-images.html" %}
+{% endwith %}
 
-<h2>Chassis</h2>
+<h2 id="suspension">Suspension</h2>
 
-<h2>Steering</h2>
+<p>
+The vehicle suspension system translates forces from the tires to the chassis, ideally while keeping the tire's in their optimum orientation. A double wishbone suspension geometry allows for independent wheel movement through well-defined camber and tire load changes in bump, droop, and roll. I designed the Bulldogs Racing 2016 suspension to optimize tire performance while allowing for independent adjustment of ride height, toe, and camber.
+</p>
+<p>
+Selecting a working tire camber range started at the tires, and was carried out independently for the front 6” Hoosiers and the rear 7.5” Hoosiers. The peak coefficient of friction values were first averaged across tire pressure and camber to determine optimal rim width. Then that rim width was set as a constant and the peak values were averaged across only camber to find optimal tire pressure, which was unsurprisingly the lowest tire pressure in the dataset due to the larger contact patch size of a flatter tire (up to the point of debeading). Lastly, the chosen rim width and pressure were set constant while the peak coefficient of friction values were varied against vertical load for various cambers. Tire performance vs. camber curves are shown below, as well as a closeup of the installed double wishbone suspension.
+</p>
 
-<h2>Brakes</h2>
+{% with left_src="/static/img/projects/bulldogs-racing-mechanical/tire-camber.jpg", left_caption="Camber's effect on tire performance for Hoosier 7.5 inch rears.", right_src="/static/img/projects/bulldogs-racing-mechanical/suspension-closeup.jpg", right_caption="Double wishbone suspension closeup on the right front side." %}
+    {% include "two-images.html" %}
+{% endwith %}
+
+<p>
+My approach to suspension design had three major steps: 1. Start with 2D dynamic wishbone geometry design to determine camber and roll center change in bump, droop, and roll; 2. Progress to a 3D geometry with 2D sketches for the pull rod - rocker - spring/damper plane as informed by spring travel requirements; 3. Finalize the 3D suspension rod, rocker, and spring/damper mount points via a load analysis.
+</p>
+<ol>
+    <li><b>2D Wishbone Geometry: </b>As mentioned in the <a href="#tires">Tires</a> section, the Hoosier tires operate optimally at a 0&#176; camber. A second input parameter to this design was the formula requirement for 1 inch of suspension travel in either direction. I increased this to 1.25 inches in each direction for 2.5 inches total to insure that the design complies with the formula. Upright pickup points were determined by track width and wheelwell room. With these requirements in place, a compromise between front/rear roll center heights and camber changes in roll resulted in a design with approximately 2&#176; of camber change for 2.5&#176; of roll. I left the static camber at 0.5&#176; and 1&#176; in the front and rear respectively because the uprights have built-in camber adjustment in the positive direction only via shims. This design kept the front and rear roll centers as close as possible to each other in both height and lateral offset such that the roll axis remained constant relative to the vehicle mass centroid axis.</li>
+    <li><b>3D Vehicle / 2D Rocker Plane: </b>With the 2D front and rear wishbone geometries defined, I transitioned to a 3D sketch that included longitudinal chassis pickup points and a </li>
+    <li><b>3D Design: </b></li>
+</ol>
+
+<h2 id="chassis">Chassis</h2>
+
+<h2 id="steering">Steering</h2>
+
+<h2 id="brakes">Brakes</h2>
 
 {% endblock %}

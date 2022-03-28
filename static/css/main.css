@@ -5,6 +5,7 @@ body {
 
 figcaption {
     color: #777777;
+    text-align: center;
 }
 
 #main {
@@ -28,8 +29,8 @@ figcaption {
 
 .image-text {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 1px;
+    left: 1px;
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 1.5rem;
     font-weight: bold;
