@@ -57,3 +57,13 @@ function sidebarResize(animation) {
     // Resize the sidebar font based on window width
     $("#main-sidebar").find("a").css("font-size", width*0.09);
 }
+
+window.prevScrollPos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (window.prevScrollPos > currentScrollPos)
+        $("#main-sidebar-button").css("top", "5px");
+    else
+        $("#main-sidebar-button").css("top", "-50px");
+    window.prevScrollPos = currentScrollPos;
+}
