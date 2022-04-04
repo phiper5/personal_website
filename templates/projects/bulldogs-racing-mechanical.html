@@ -45,7 +45,7 @@ The Formula SAE Tire Test Consortium pools resources from teams to obtain high q
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-mechanical/tire-data.jpg", left_caption="Pacejka's magic formula fit of representative Hoosier tire data.", right_src="/static/img/projects/bulldogs-racing-mechanical/tire-closeup.jpg", right_caption="Hoosier 7.5 inch wide tire installed on the left rear of BR2016." %}
-    {% include "two-images.html" %}
+    {% include "image-2.html" %}
 {% endwith %}
 
 
@@ -59,8 +59,8 @@ The vehicle suspension system translates forces from the tires to the chassis, i
 Selecting a working tire camber range started at the tires, and was carried out independently for the front 6” Hoosiers and the rear 7.5” Hoosiers. The peak coefficient of friction values were first averaged across tire pressure and camber to determine optimal rim width. Then that rim width was set as a constant and the peak values were averaged across only camber to find optimal tire pressure, which was unsurprisingly the lowest tire pressure in the dataset due to the larger contact patch size of a flatter tire (up to the point of debeading). Lastly, the chosen rim width and pressure were set constant while the peak coefficient of friction values were varied against vertical load for various cambers. Tire performance vs. camber curves are shown below, as well as a closeup of the installed double wishbone suspension.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-mechanical/tire-camber.jpg", left_caption="Camber's effect on tire performance for Hoosier 7.5 inch rears.", right_src="/static/img/projects/bulldogs-racing-mechanical/suspension-closeup.jpg", right_caption="Double wishbone suspension closeup on the right front side." %}
-    {% include "two-images.html" %}
+{% with left_src="/static/img/projects/bulldogs-racing-mechanical/tire-camber.jpg", left_caption="Camber's effect on tire performance for Hoosier 7.5 inch rears.", right_src="/static/img/projects/bulldogs-racing-mechanical/rear-suspension-closeup.jpg", right_caption="Double wishbone suspension closeup on the right rear side." %}
+    {% include "image-2.html" %}
 {% endwith %}
 
 <p>
@@ -78,32 +78,48 @@ The uprights are a crucial connecting point between wheels, suspension, steering
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-mechanical/suspension-machining.jpg", left_caption="CNC milling of front right upright main body.", right_src="/static/img/projects/bulldogs-racing-mechanical/suspension-rear.jpg", right_caption="Installed rear upright with adjustable camber plate." %}
-    {% include "two-images.html" %}
+    {% include "image-2.html" %}
 {% endwith %}
 
 
 <h2 id="steering">Steering</h2>
 
 <p>
-I started the steering design by fixing driver torque at the steering wheel and determining steering ratio from tire angle requirements. Driver torque and steering ratio are inversely proportional and depend on the steering rack and upright geometry. Once the ratio and forces were sorted, a two dimensional top view model of the vehicle steering was used to determine Ackermann geometry, which is used to allow the inside wheel to turn more than the outer one, thus reducing tire scrub in tight corners. The steering rack was placed forward of the upright steering link to enable a progressive Ackermann geometry, creating little steering angle difference in low angle corners and large wheel angle differences in tight, slow corners. This geometry is ideal for Formula SAE as it allows for less scrub during sharp turns while still giving good turn-in performance for larger radius corners. Additionally it has the added benefit of making the vehicle easy to move around the paddock by limiting tire scrub during sharp turns. Once the 2D model was completed, the geometry could be translated to three dimensions to determine chassis mounting points and interferences. Additionally the 3D model allowed for integration with the suspension model at the upright.
+The typical Formula SAE steering design uses a rack and pinion connected through two steering rods to the uprights. The rack is connected through a column and universal joint to the steering wheel. The ratio of the rack and pinion along with the upright attachment location relative to its steering rotation axis determines the total steering ratio of the vehicle. This ratio determines how much a turn of the steering wheel affects turning of the front wheels. A typical set point is 180 degrees of steering wheel travel for 30 degrees of inside wheel travel. This along with the steering wheel diameter determines the force exerted by the driver during peak cornering accelerations. Steering ratio and torque at the steering wheel are inversely proportional with each other, resulting in a trade off between degrees of wheel travel and driver exertion.
+</p>
+
+<p>
+I started the steering design by fixing driver torque at the steering wheel and determining steering ratio from tire angle requirements. Once the ratio and forces were sorted, a two dimensional top view model of the vehicle steering was used to determine Ackermann geometry, which is used to allow the inside wheel to turn more than the outer one, thus reducing tire scrub in tight corners. The steering rack was placed forward of the upright steering link to enable a progressive Ackermann geometry, creating little steering angle difference in low angle corners and large wheel angle differences in tight, slow corners. This geometry is ideal for Formula SAE as it allows for less scrub during sharp turns while still giving good turn-in performance for larger radius corners. Additionally it has the added benefit of making the vehicle easy to move around the paddock by limiting tire scrub during sharp turns. Once the 2D model was completed, the geometry could be translated to three dimensions to determine chassis mounting points and interferences. Additionally the 3D model allowed for integration with the suspension model at the upright.
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-mechanical/plastic-upright.jpg", left_caption="3D printed plastic upright to verify steering travel.", right_src="/static/img/projects/bulldogs-racing-mechanical/steering-column.jpg", right_caption="Fully installed steering column, rack, and rods." %}
-    {% include "two-images.html" %}
+    {% include "image-2.html" %}
 {% endwith %}
 
 
 <h2 id="brakes">Brakes</h2>
 
 <p>
-
+I designed the brakes around peak coefficient of friction for the tires and the assumed 60% vehicle rear weight bias. A maximum deceleration of 2g was used since the brake system needs to be overdesigned to ensure tire locking at all velocities. The front and rear coefficients of frictions were calculated in the <a href="#tires">Tires</a> section. Then these forces were matched by those exerted through the hydraulic brake lines. The master cylinders actuated by the drivers foot and the brake calipers that actuate the brake discs on the wheel hub had pistons that interacted with the hydraulic brake lines. The ratio of these pistons' areas determined the force for a particular brake caliper. Since the front and rear brakes were on different brake lines, each line could be run at a different pressure such that more force was exerted in the front than the rear.
 </p>
+
+<p>
+Wilwood cylinders and calipers were used as they were cheap, easy to source, and came in a variety of piston diameters. It was found that an 11/16” front master cylinder diameter and 9/8” rear master cylinder diameter along with 9/8” front and rear brake caliper diameters resulted in a well-balanced car. This sizing had the added benefit of locking the front tires before the rears, thus putting the car in a stable understeer scenario should only one pair of tires lock. Had the opposite been true with the rears locking before the fronts, the car would tend to skid leaving the driver with little to no control over the direction that the car is traveling. In parallel to determining these numbers, the front uprights were developed to accommodate the Wilwood brake calipers. These calipers were preferentially placed towards the front of the upright to lessen the load on the upright bearings whenever braking occurred, rather than adding to the already 1g loading from gravity.
+</p>
+
+{% with image_src="/static/img/projects/bulldogs-racing-mechanical/brakes-closeup.jpg", image_caption="Brake disc and caliper mounted on the front right upright." %}
+    {% include "image-1.html" %}
+{% endwith %}
 
 
 <h2 id="chassis">Chassis</h2>
 
 <p>
-
+Chassis design occurred in parallel with suspension, steering, and brakes design since the chassis needed to transmit all loads from these subsystems to the rest of the vehicle. Additionally, the formula had strict rules concerning chassis materials and design for safety reasons. On top of those requirements, the chassis needed to fit various other subsystems such as the powertrain, battery box, pedal box, seat/driver, and cooling. Due to long fabrication lead times, the chassis had to be oversized and manufactured early in the design cycle while other subsystem designs were still in progress.
 </p>
+
+{% with left_src="/static/img/projects/bulldogs-racing-mechanical/chassis-phil.jpg", left_caption="Bare chassis in as-delivered state.", center_src="/static/img/projects/bulldogs-racing-mechanical/chassis-verification.jpg", center_caption="Roll hoop rules verification.", right_src="/static/img/projects/bulldogs-racing-mechanical/chassis-overview.jpg", right_caption="Chassis with suspension, steering, and brakes." %}
+    {% include "image-3.html" %}
+{% endwith %}
 
 {% endblock %}
