@@ -5,14 +5,97 @@
 
 <h1>{{ title }}</h1>
 
+<div class="row">
+<div class="col-xl-6">
+    <p>
+    Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007. During my first year with the team we competed at the Formula SAE Hybrid competition, taking 3rd place in 2014. We converted to an all-electric team for my last year and a half.
+    </p>
+    <p>
+    From 2015-2016 I was Chief Engineer of the team, during which time I led design and fabrication of the battery box, high voltage, and low voltage systems of the vehicle. I also led the high-level powertrain system design including motor, inverter, and battery cell selection. These systems largely defined the vehicle acceleration and endurance performance.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 vert-center">
+    <figure>
+    <img class="image-filled pb-1" src="/static/img/projects/bulldogs-racing-electrical/powertrain-top.jpg">
+    <figcaption>320 kW of independent rear wheel electric motor drive.</figcaption>
+    </figure>
+</div>
+</div>
+
+
 <h2>Powertrain</h2>
+
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/powertrain-isolated.jpg", left_caption="Constant velocity joint on 4:1 planetary gearbox.", right_src="/static/img/projects/bulldogs-racing-electrical/powertrain-rear.jpg", right_caption="Rear view of the powertrain sans axles." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
 
 <h2>Battery Box</h2>
 
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-box-cad.jpg", left_caption="Battery box, motor controller, and high voltage system CAD.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-stack-cad.jpg", right_caption="Battery stack CAD of 23 LiFePO4 cells." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-machining.jpg", left_caption="Machining of the battery stack end plates.", center_src="/static/img/projects/bulldogs-racing-electrical/battery-machining-closeup.jpg", center_caption="Closeup of the end plate CNC milling process.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-tab-covers.jpg", right_caption="UL 94 V-0 tab covers were 3D printed." %}
+    {% include "image-3.html" %}
+{% endwith %}
+
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-side.jpg", left_caption="Nominally 74 V battery stack construction.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+
 <h2>High Voltage System</h2>
+
+<p>
+
+</p>
+
+{% with image_src="/static/img/projects/bulldogs-racing-electrical/hv-schematic.jpg", image_caption="Schematic of high voltage control system with relay, precharge, discharge, and indicator circuits." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/hv-pcb.jpg", left_caption="High voltage control custom PCB.", right_src="/static/img/projects/bulldogs-racing-electrical/hv-controller.jpg", right_caption="Bamocar motor controller with cover removed." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
 
 <h2>Low Voltage System</h2>
 
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/lv-pcb.jpg", left_caption="Low voltage PCB for Beaglebone Black controller.", right_src="/static/img/projects/bulldogs-racing-electrical/lv-gfd.jpg", right_caption="Custom ground fault detector PCB as-installed." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/lv-wiring.jpg", left_caption="Wiring harness installation on BR2016.", right_src="/static/img/projects/bulldogs-racing-electrical/lv-coding.jpg", right_caption="Fixing bugs in the BR2014 code on a track day." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+
 <h2>Motor Controller Project</h2>
+
+<p>
+
+</p>
 
 {% endblock %}
