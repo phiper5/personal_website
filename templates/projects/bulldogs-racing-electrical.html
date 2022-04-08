@@ -27,7 +27,7 @@
 <h2>Powertrain</h2>
 
 <p>
-A system-level design of the vehicle's powertrain required strict adherence to the formula and performance-price trade-offs between commercial-off-the-shelf battery cells, motor inverters, and motors. Many commercial electric vehicles use DC-DC converters to step-up low battery pack voltages, thus reducing I<sup>2</sup>R losses. This practice decreases the number of cells in series, thus mitigating battery pack energy losses due to cell mismatch and degradation. However, the formula stipulated a maximum tractive system voltage of 300&nbsp;V, which was low enough for me to rule out DC-DC conversion early on in the design process. The formula also restricted maximum power output to 80&nbsp;kW and energy storage to 5.4&nbsp;kWh with an 80% cell derating, which influenced motor and battery cell selection respectively. The high power-to-weight ratio of electric motors enabled an independent rear wheel drive design with two Emrax 207 motors delivering up to 160&nbsp;Nm at 320&nbsp;A each. Driving the rear wheels with separate motors precluded the need for a differential and chain/gear drive while also reducing axle lengths. The motors were selected to match a 300&nbsp;V tractive system voltage and 4:1 planetary gearboxes matched the Emrax 207 speed/torque outputs to those necessary for Formula SAE acceleration, autocross, and endurance events.
+A system-level design of the vehicle's powertrain required strict adherence to the formula and performance-price trade-offs between commercial-off-the-shelf battery cells, motor inverters, and motors. Many commercial electric vehicles use DC-DC converters to step-up low battery pack voltages, thus reducing I<sup>2</sup>R losses. This practice decreases the number of cells in series and mitigates battery pack energy losses due to cell mismatch and degradation. However, the formula stipulated a maximum tractive system voltage of 300&nbsp;V, which was low enough for me to rule out DC-DC conversion early on in the design process. The formula also restricted maximum power output to 80&nbsp;kW and energy storage to 5.4&nbsp;kWh with an 80% cell derating, which influenced motor and cell selection respectively. The high power-to-weight ratio of electric motors enabled an independent rear wheel drive design with two Emrax 207 motors delivering up to 160&nbsp;Nm at 320&nbsp;A each. Driving the rear wheels with separate motors precluded the need for a differential and chain/gear drive while also reducing axle lengths. The motors were selected to complement a 300&nbsp;V tractive system voltage and 4:1 planetary gearboxes matched the Emrax 207 speed/torque outputs to those necessary for Formula SAE acceleration and autocross events.
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-electrical/powertrain-isolated.jpg", left_caption="Constant velocity joint on 4:1 planetary gearbox.", right_src="/static/img/projects/bulldogs-racing-electrical/powertrain-rear.jpg", right_caption="Rear view of the powertrain sans axles." %}
@@ -35,14 +35,18 @@ A system-level design of the vehicle's powertrain required strict adherence to t
 {% endwith %}
 
 <p>
-Performance paragraph
+Formula SAE has three dynamic events: acceleration, autocross, and endurance. The design described thus far was optimized for acceleration and autocross, while still offering adequate endurance performance. Rear tire coefficient of friction, weight balance, and pitch axis were used to calculate a peak acceleration of 1.3g. The motors and batteries were sized large enough to burn out the rear wheels at speeds up to 40&nbsp;mph. Prediction for straight-line 0-60&nbsp;mph were 2.09&nbsp;s and the powertrain was sized for a maximum speed of 90&nbsp;mph, which was high enough to cover peak acceleration event speeds with some safety factor.
 </p>
 
 
 <h2>Battery Box</h2>
 
 <p>
+Battery cell selection was performed in parallel with motor and motor controller selection. The primary formula limitations were a maximum voltage of 300&nbsp;V, power output of 80&nbsp;kW, and energy of 5.4&nbsp;kWh. Several cylindrical, prismatic, and pouch cell systems were traded based largely on performance, complexity, and cost. Lithium cobalt oxide cells had the best specific energies, but there were serious concerns about cell puncture and thermal runaway safety at the time, especially given that this was a student team operating at a university. The lithium iron phosphate chemistry offered higher specific power and safety at the cost of specific energy. Power-energy requirements for the competition's dynamic events encouraged my decision to use a lithium iron phosphate chemistry, which also took into account safety concerns. Note that most commercial electric vehicles have power-energy requirements that prefer high specific energy, thus pointing towards a lithium cobalt oxide chemistry, or more recently a lithium nickel manganese cobalt oxide chemistry. Additionally, puncture and thermal runaway safety performance for these chemistries have been greatly improved throughout the late 2010s.
+</p>
 
+<p>
+A123 Systems, a spin-off of MIT, was the premier provider of lithium iron phosphate battery cells at the time. Their AMP20 pouch cell with a 3.3&nbsp;V nominal voltage, 19.5&nbsp;Ah capacity, 10C continuous current rating, and 22C peak (10&nbsp;s) current rating was perfectly sized for our vehicle. The high cell capacity meant that all cells could be placed in series, thus circumventing individual cell string fusing requirements in the formula.
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-box-cad.jpg", left_caption="Battery box, motor controller, and high voltage system CAD.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-stack-cad.jpg", right_caption="Battery stack CAD of 21 LiFePO4 cells." %}
@@ -50,7 +54,15 @@ Performance paragraph
 {% endwith %}
 
 <p>
+Lithium and pouch cell stack requirements.
+</p>
 
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-side.jpg", left_caption="Nominally 69 V battery stack construction.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+<p>
+Fabrication techniques
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-machining.jpg", left_caption="Machining of the battery stack end plates.", center_src="/static/img/projects/bulldogs-racing-electrical/battery-machining-closeup.jpg", center_caption="Closeup of the end plate CNC milling process.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-tab-covers.jpg", right_caption="UL 94 V-0 tab covers were 3D printed." %}
@@ -58,12 +70,8 @@ Performance paragraph
 {% endwith %}
 
 <p>
-
+Thermal model for autocross+endurance
 </p>
-
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-side.jpg", left_caption="Nominally 67 V battery stack construction.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
-    {% include "image-2.html" %}
-{% endwith %}
 
 
 <h2>High Voltage System</h2>
