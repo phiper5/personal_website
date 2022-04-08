@@ -27,12 +27,16 @@
 <h2>Powertrain</h2>
 
 <p>
-
+A system-level design of the vehicle's powertrain required strict adherence to the formula and performance-price trade-offs between commercial-off-the-shelf battery cells, motor inverters, and motors. Many commercial electric vehicles use DC-DC converters to step-up low battery pack voltages, thus reducing I<sup>2</sup>R losses. This practice decreases the number of cells in series, thus mitigating battery pack energy losses due to cell mismatch and degradation. However, the formula stipulated a maximum tractive system voltage of 300&nbsp;V, which was low enough for me to rule out DC-DC conversion early on in the design process. The formula also restricted maximum power output to 80&nbsp;kW and energy storage to 5.4&nbsp;kWh with an 80% cell derating, which influenced motor and battery cell selection respectively. The high power-to-weight ratio of electric motors enabled an independent rear wheel drive design with two Emrax 207 motors delivering up to 160&nbsp;Nm at 320&nbsp;A each. Driving the rear wheels with separate motors precluded the need for a differential and chain/gear drive while also reducing axle lengths. The motors were selected to match a 300&nbsp;V tractive system voltage and 4:1 planetary gearboxes matched the Emrax 207 speed/torque outputs to those necessary for Formula SAE acceleration, autocross, and endurance events.
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-electrical/powertrain-isolated.jpg", left_caption="Constant velocity joint on 4:1 planetary gearbox.", right_src="/static/img/projects/bulldogs-racing-electrical/powertrain-rear.jpg", right_caption="Rear view of the powertrain sans axles." %}
     {% include "image-2.html" %}
 {% endwith %}
+
+<p>
+Performance paragraph
+</p>
 
 
 <h2>Battery Box</h2>
@@ -41,7 +45,7 @@
 
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-box-cad.jpg", left_caption="Battery box, motor controller, and high voltage system CAD.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-stack-cad.jpg", right_caption="Battery stack CAD of 23 LiFePO4 cells." %}
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-box-cad.jpg", left_caption="Battery box, motor controller, and high voltage system CAD.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-stack-cad.jpg", right_caption="Battery stack CAD of 21 LiFePO4 cells." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -57,7 +61,7 @@
 
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-side.jpg", left_caption="Nominally 74 V battery stack construction.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
+{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-side.jpg", left_caption="Nominally 67 V battery stack construction.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
     {% include "image-2.html" %}
 {% endwith %}
 
