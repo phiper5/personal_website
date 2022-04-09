@@ -11,7 +11,7 @@
     Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007. During my first year with the team we competed at the Formula SAE Hybrid competition, taking 3rd place in 2014. We converted to an all-electric team for my last year and a half.
     </p>
     <p>
-    From 2015-2016 I was Chief Engineer of the team, during which time I led design and fabrication of the battery box, high voltage, and low voltage systems of the vehicle. I also led the high-level powertrain system design including motor, inverter, and battery cell selection. These systems largely defined the vehicle acceleration and endurance performance.
+    From 2015-2016 I was Chief Engineer of the team, during which time I led design and fabrication of the <a href="#battery-box">battery box</a>, <a href="#high-voltage">high voltage</a>, and <a href="#low-voltage">low voltage</a> systems of the vehicle. I also led the high-level <a href="#powertrain">powertrain</a> system design including motor, inverter, and battery cell selection. These systems largely defined the vehicle acceleration and efficiency performance.
     </p>
 </div>
 <div class="col-xl-1"></div>
@@ -24,7 +24,7 @@
 </div>
 
 
-<h2>Powertrain</h2>
+<h2 id="powertrain">Powertrain</h2>
 
 <p>
 A system-level design of the vehicle's powertrain required strict adherence to the formula and performance-price trade-offs between commercial-off-the-shelf battery cells, motor inverters, and motors. Many commercial electric vehicles use DC-DC converters to step-up low battery pack voltages, thus reducing I<sup>2</sup>R losses. This practice decreases the number of cells in series and mitigates battery pack energy losses due to cell mismatch and degradation. However, the formula stipulated a maximum tractive system voltage of 300&nbsp;V, which was low enough for me to rule out DC-DC conversion early on in the design process. The formula also restricted maximum power output to 80&nbsp;kW and energy storage to 5.4&nbsp;kWh with an 80% cell derating, which influenced motor and cell selection respectively. The high power-to-weight ratio of electric motors enabled an independent rear wheel drive design with two Emrax 207 motors delivering up to 160&nbsp;Nm at 320&nbsp;A each. Driving the rear wheels with separate motors precluded the need for a differential and chain/gear drive while also reducing axle lengths. The motors were selected to complement a 300&nbsp;V tractive system voltage and 4:1 planetary gearboxes matched the Emrax 207 speed/torque outputs to those necessary for Formula SAE acceleration and autocross events.
@@ -39,7 +39,7 @@ Formula SAE has three dynamic events: acceleration, autocross, and endurance. Th
 </p>
 
 
-<h2>Battery Box</h2>
+<h2 id="battery-box">Battery Box</h2>
 
 <p>
 Battery cell selection was performed in parallel with motor and motor controller selection. The formula limited bus voltage to 300&nbsp;V, power output to 80&nbsp;kW, and battery energy to 5.4&nbsp;kWh. Several cylindrical, prismatic, and pouch cell systems were traded based largely on performance, complexity, and cost. Lithium cobalt oxide cells had the best specific energies, but there were serious concerns about cell puncture and thermal runaway safety at the time, especially given that this was a student team operating at a university. The lithium iron phosphate chemistry offered higher specific power and safety at the cost of specific energy. Power-energy requirements for the competition's dynamic events encouraged my decision to use a lithium iron phosphate chemistry, which also took into account safety concerns. Note that most commercial electric vehicles have power-energy requirements that prefer high specific energy, thus pointing towards a lithium cobalt oxide chemistry, or more recently a lithium nickel manganese cobalt oxide chemistry. Additionally, puncture and thermal runaway safety performance for these chemistries have been greatly improved throughout the late 2010s.
@@ -82,7 +82,7 @@ Battery pack thermal management was considered for the acceleration, autocross, 
 </p>
 
 
-<h2>High Voltage System</h2>
+<h2 id="high-voltage">High Voltage System</h2>
 
 <p>
 Over 30 pages of formula rules govern the vehicle's high voltage (HV) system, largely to enforce safety, I designed and implemented the precharge/discharge circuitry, high current contactors, fusing, disconnects, safety lighting, and galvanic isolation with ground fault detection for our HV system. A precharge circuit charged the motor controller capacitors at a controlled rate before connecting a high current path through the contactors. The discharge circuit removed charge from these same capacitors upon disabling the HV system in order to prevent driver/crew contact with HV. Two single pole, normally open Kilovac EV200 contactors were used in the high current path to isolate the battery from the motor controllers. A Littelfuse L50S200 allowed for up to 200&nbsp;A continuously, broke at 600&nbsp;A in 6&nbsp;s, and broke at 2000&nbsp;A in 3&nbsp;ms. With stack internal resistances on the order of 0.1&nbsp;m&ohm;, this fuse would have been more than accurate to mitigate a short circuit. Safety lighting was designed to run directly off of the HV through a DC-DC step-down converter. A simpler solution would have used a voltage divider, but power losses of such a design were considered excessive. The formula also required galvanic isolation between the high and low voltage systems, along with ground fault detection between the two systems. Part of the HV circuit diagram is shown below for reference.
@@ -101,18 +101,18 @@ I designed a printed circuit board (PCB) to house the high voltage control circu
 {% endwith %}
 
 <p>
-Motor + inverter selection and packaging
+The motor and motor controller were selected in parallel with battery pack design. The Emrax 207 Medium permanent magnet AC motor had a high power/weight ratio, high efficiency, and small packaging. Other induction, DC brushed, and brushless motors were considered, but none neared the performance of the Emrax motors, which were originally designed for electric propeller aircraft. Current, angular position, and angular velocity feedbacks were necessary to drive the motors with a three phase inverter using a direct torque control drive algorithm. The Bamocar D3 400-400 inverter met voltage/current requirements for the motor with built-in regenerative braking capabilities. Two separate inverters were required to drive two motors, one for each rear wheel. Water cooling was required for the inverters and motors, which was provided through a water pump, and heat was rejected through a centrally mounted radiator with air ducting around the driver's head.
 </p>
 
 
-<h2>Low Voltage System</h2>
+<h2 id="low-voltage">Low Voltage System</h2>
 
 <p>
-Overview: drive-by-wire, controller, lighting, sensors (spring travel, tire temp sensors, HD camera, brake pedal travel, accelerometer), Wifi for monitoring only; mention shared responsibility
+The low voltage (LV) system interfaced with the driver through the dashboard, brakes, and accelerator. It processed these signals into inputs for the motor controller and safety lighting. The LV system measured spring, brake pedal, and accelerator pedal travel via linear potentiometers, tire temperature from infrared sensors, vehicle acceleration through an inertial measurement system, and video from an HD camera. Pertinent data was transferred to race engineers in real-time through an onboard Wifi signal. I led a group of four mechanical and electrical engineers that worked on the LV system. It was a team effort to design, fabricate, and install this system which interfaced with every other part of the vehicle.
 </p>
 
 <p>
-Beaglebone black controller + coding
+A Beaglebone Black microcontroller running Linux was used to control the vehicle. It could interface with an SD card for storage, USB for the HD camera, analog inputs for the potentiometers, as well as digital I/O for the infrared sensors and inertial measurement system. On top of all of that, it could broadcast a Wifi signal for interfacing with race engineers in real-time. I wrote the control code in Python with an object oriented structure to organize the driver, powertrain, sensor, and engineer interfaces.
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-electrical/lv-pcb.jpg", left_caption="Low voltage PCB for Beaglebone Black controller.", right_src="/static/img/projects/bulldogs-racing-electrical/lv-gfd.jpg", right_caption="Custom ground fault detector PCB as-installed." %}
@@ -120,26 +120,12 @@ Beaglebone black controller + coding
 {% endwith %}
 
 <p>
-Ground fault detector, safety systems, E-stops
+Safety was of the utmost importance and the formula strictly defined a LV safety interlock system which all LV current had to pass through. Emergeny stop switches were required in several places around the vehicle, a brake overtravel switch would trigger in case of brake failure, and a ground fault detection could directly turn off all LV current through a relay. The ground fault detector was provided by a competition sponsor, and I designed a LV relay board to condense most of the safety interlock system into one location. A startup buzzer and safety lighting were also required, and ran directly off of current passing through the safety interlock system.
 </p>
 
 {% with left_src="/static/img/projects/bulldogs-racing-electrical/lv-wiring.jpg", left_caption="Wiring harness installation on BR2016.", right_src="/static/img/projects/bulldogs-racing-electrical/lv-coding.jpg", right_caption="Fixing bugs in the BR2014 code on a track day." %}
     {% include "image-2.html" %}
 {% endwith %}
 
-<p>
-Wiring harness
-</p>
-
-
-<h2>Motor and Controller Project</h2>
-
-<p>
-
-</p>
-
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/motor-diagram.jpg", left_caption="Block diagram for a custom motor controller.", right_src="/static/img/projects/bulldogs-racing-electrical/motor-core.jpg", right_caption="Electrical steel core for a custom motor design." %}
-    {% include "image-2.html" %}
-{% endwith %}
 
 {% endblock %}
