@@ -11,7 +11,7 @@
     In spring of 2018 I led a team of 9 students that built a 100&nbsp;ft propane flame effect called Big Friendly Flame (BFF) as part of Purdue's AAE&nbsp;535 Propulsion Design, Build, Test class. Professor Carson Slabaugh and Dr. Rohan Gejji taught the class; Walter Productions funded and advised the project. My contributions ranged from project management to detailed engineering design. Additionally, I committed my summer of 2018 to delivering the flame effect to Walter Productions for Burning Man 2018 (end of August), even after the class was completed.
     </p>
     <p>
-    I structured our semester into a three-step approach: research/model <a href="#flame-height">flame heights</a>, quickly test a <a href="#preliminary-design">preliminary design</a>, then plan and build a final <a href="#deliverable-design">deliverable design</a>. The difficulty of multiphase turbulent combustion modeling prompted this approach, as well as the limited time in a semester. The completed deliverable design successfully produced over 100&nbsp;ft flames in a manner conducive to operation in the isolated Black Rock desert, where Burning Man takes place.
+    I structured our semester into a two-step approach: quickly test a <a href="#preliminary-design">preliminary design</a> then plan and build a final <a href="#deliverable-design">deliverable design</a>. The difficulty of multiphase turbulent combustion modeling prompted this approach, as well as the limited time in a semester. Both the preliminary design and deliverable design successfully produced over 100&nbsp;ft flames, the latter of which could do so in a manner conducive to operation in the isolated Black Rock desert, where Burning Man takes place.
     </p>
 </div>
 <div class="col-xl-1"></div>
@@ -25,18 +25,143 @@
 </div>
 </div>
 
-<h2 id="flame-height">Flame Height Prediction</h2>
-
 <h2 id="preliminary-design">Preliminary Design</h2>
+
+<p>
+Overview: Designed quickly, use hardware available at Zucrow labs, test igniter then water then gaseous propane, then liquid propane
+</p>
+
+{% with image_src="/static/img/projects/big-friendly-flame/preliminary-site.jpg", image_caption="The preliminary design testing was sited at Zucrow Laboratories on Purdue's campus." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<p>
+Quick overview of the P&amp;ID: pressurization scheme, sizing
+
+{% with image_src="/static/img/projects/big-friendly-flame/preliminary-pid.jpg", image_caption="P&ID for the preliminary design, mostly using components available at Zucrow Labs." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<p>
+Igniter testing
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/preliminary-igniter-small.jpg", left_caption="Low velocity 25&nbsp;cm igniter flame.", right_src="/static/img/projects/big-friendly-flame/preliminary-igniter-big.jpg", right_caption="Higher velocity 80&nbsp;cm igniter flame." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+<p>
+Initial tests: water + gaseous propane testing
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/preliminary-water.jpg", left_caption="Water testing measured liquid ejection heights.", right_src="/static/img/projects/big-friendly-flame/preliminary-gas.jpg", right_caption="Gaseous propane testing verified hardware operation." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+<p>
+Liquid propane testing
+</p>
+
+{% with image_src="/static/img/projects/big-friendly-flame/preliminary-liquid.jpg", image_caption="Preliminary design liquid propane flames were measured for height." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<p>
+Two phase flow
+</p>
+
+{% with image_src="/static/img/projects/big-friendly-flame/preliminary-ejection.jpg", image_caption="Closeup of the preliminary design ejecting liquid propane at various mass flow rates." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<p>
+Smoke ring generation
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/smoke-1.jpg", left_caption="Liquid propane ejection, ignition, and combustion.", center_src="/static/img/projects/big-friendly-flame/smoke-2.jpg", center_caption="Smoke ring generation coupled with combustion.", right_src="/static/img/projects/big-friendly-flame/smoke-3.jpg", right_caption="Post-firing smoke ring vortex stability." %}
+
+    {% include "image-3.html" %}
+{% endwith %}
 
 <h2 id="deliverable-design">Deliverable Design</h2>
 
+<div class="row">
+<div class="col-xl-6">
+    <p>
+    Overview paragraph: purpose/goals, design, end on requirements:
+    </p>
+    <p>
+    Requirements in list form
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 vert-center">
+    <figure>
+    <img class="image-filled pb-1" src="/static/img/projects/big-friendly-flame/deliverable-design.jpg">
+    <figcaption>Final CAD for the deliverable design of BFF.</figcaption>
+    </figure>
+</div>
+</div>
+
 <h3>Fluids System</h3>
+
+<p>
+Fluids + P&amp;ID outline
+</p>
+
+{% with image_src="/static/img/projects/big-friendly-flame/fluids-pid.jpg", image_caption="P&ID for the BFF deliverable design showing propane and nitrogen fluid systems." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<p>
+Pressure drop and mass flow calculations
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/fluids-pressure.jpg", left_caption="Pressure drops calculated with mass flow.", center_src="/static/img/projects/big-friendly-flame/fluids-nitrogen.jpg", center_caption="CAD for the nitrogen fluids system.", right_src="/static/img/projects/big-friendly-flame/fluids-propane.jpg", right_caption="CAD for the propane fluids system." %}
+
+    {% include "image-3.html" %}
+{% endwith %}
 
 <h3>Structure</h3>
 
+<p>
+Overview, compactness, nitrogen bottle locations, FEAs
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/structure-only.jpg", left_caption="BFF structural components on a steel welded frame.", right_src="/static/img/projects/big-friendly-flame/structure-integration.jpg", right_caption="Integration of BFF on the Heathen fire truck art car." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
 <h3>Electronics/Control</h3>
 
+<p>
+Overview: Power distribution, control circuitry, safety interlock
+</p>
+
+{% with image_src="/static/img/projects/big-friendly-flame/electronics-schematic.jpg", image_caption="Electronics schematic detailing power distribution, control circuitry, and a safety interlock." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<p>
+User interface: E-stop, pressure/delay pots, fill/vent switches, igniter/ejector buttons
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/electronics-box.jpg", left_caption="Electronics enclosure for environmental protection.", right_src="/static/img/projects/big-friendly-flame/electronics-controller.jpg", right_caption="Handheld controller for the flame effect." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
 <h3>Burning Man 2018</h3>
+
+<p>
+Delivery and integration
+</p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/burningman-big.jpg", left_caption="BFF on the night of the Man Burn.", right_src="/static/img/projects/big-friendly-flame/burningman-small.jpg", right_caption="The beginnings of a BFF firing." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+<p>
+Operation while at Burning Man
+</p>
 
 {% endblock %}
