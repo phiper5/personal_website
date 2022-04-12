@@ -8,7 +8,7 @@
 <div class="row">
 <div class="col-xl-6">
     <p>
-    In spring of 2018 I led a team of 9 students that built a 100&nbsp;ft propane flame effect called Big Friendly Flame (BFF) as part of Purdue's AAE&nbsp;535 Propulsion Design, Build, Test class. Professor Carson Slabaugh and Dr. Rohan Gejji taught the class; Walter Productions funded and advised the project. My contributions ranged from project management to detailed engineering design. Additionally, I committed my summer of 2018 to delivering the flame effect to Walter Productions for Burning Man 2018 (end of August), even after the class was completed.
+    In spring of 2018 I led a <a href="#team">team</a> of 9 students that built a 100&nbsp;ft propane flame effect called Big Friendly Flame (BFF) as part of Purdue's AAE&nbsp;535 Propulsion Design, Build, Test class. Professor Carson Slabaugh and Dr. Rohan Gejji taught the class; Walter Productions funded and advised the project. My contributions ranged from project management to detailed engineering design. Additionally, I committed my summer of 2018 to delivering the flame effect to Walter Productions for Burning Man 2018 (end of August), even after the class was completed.
     </p>
     <p>
     I structured our semester into a two-step approach: quickly test a <a href="#preliminary-design">preliminary design</a> then plan and build a final <a href="#deliverable-design">deliverable design</a>. The difficulty of multiphase turbulent combustion modeling prompted this approach, as well as the limited time in a semester. Both the preliminary design and deliverable design successfully produced over 100&nbsp;ft flames, the latter of which could operate in the isolated Black Rock desert, where <a href="#burningman">Burning Man 2018</a> took place.
@@ -106,10 +106,36 @@ We did not expect a smoke ring phenomenon to occur from the flame effect's opera
 <div class="row">
 <div class="col-xl-6">
     <p>
-    Overview paragraph: purpose/goals, design, end on requirements:
-    </p>
-    <p>
-    Requirements in list form
+    The preliminary design verified that a 100&nbsp;ft flame could be produced by a liquid propane ejector pressurized with gaseous nitrogen. However, the deliverable design required significantly more design effort such that it was compact enough for mounting on a fire truck and simple enough to be used by non-engineer operators. In addition to propane and nitrogen fluid systems, the deliverable design had structural and electrical design elements that were not necessary in the preliminary design. All components had to be sourced in a short time period since the final product would be shipped to Walter Productions by late summer, and to Burning Man in the middle of August. I spent a large portion of my 2018 summer welding the stand, wiring the electronics, building the fluid systems, and testing the finished product. The following requirements were developed to guide the deliverable design:
+    <ol>
+        <li>
+            Develop a flame effect with an 80-100&nbsp;ft height.
+        </li>
+        <li>
+            Use propane and air as the fuel and oxidizer respectively.
+        </li>
+        <li>
+            The flame effect must be operable on Heathen and standalone.
+        </li>
+        <li>
+            Conform the fuel system to NFPA codes 54, 58, and 160.
+        </li>
+        <li>
+            Control the flame effect with an on/off digital signal.
+        </li>
+        <li>
+            Power the flame effect with a 120&nbsp;V AC source.
+        </li>
+        <li>
+            The flame effect must be operable from 14°F to 113°F.
+        </li>
+        <li>
+            System components must be accessible for replacement and repair.
+        </li>
+        <li>
+            The max sound exposure must be less than 120&nbsp;dBA from 15&nbsp;ft away.
+        </li>
+    </ol>
     </p>
 </div>
 <div class="col-xl-1"></div>
@@ -121,10 +147,10 @@ We did not expect a smoke ring phenomenon to occur from the flame effect's opera
 </div>
 </div>
 
-<h3>Fluids System</h3>
+<h3>Fluid Systems</h3>
 
 <p>
-Fluids + P&amp;ID outline
+The deliverable design process and instrumentation diagram (P&amp;ID) largely matched that of the preliminary design. Two identical ASME pressure vessels rated to 40&nbsp;bar were connected through a high flow valve; one was for liquid propane and the other for gaseous nitrogen. This design allowed for sufficient nitrogen headspace and reduced nitrogen waste between fillings and firings, which was crucial to desert operation where we would have to bring our own 400&nbsp;bar pressurized nitrogen cylinders. A liquid propane pump designed for use on LPG delivery trucks simplified and quickened the filling procedure. Five 100&nbsp;lb liquid propane tanks were manifolded together in order to provide sufficient mass flow to prevent stalling of the pump. A smaller 60 lb propane tank supplied gaseous propane for the ignition system. Pneumatic valves were operated off of the same high pressure nitrogen cylinder as the ejection system, albeit through a 6&nbsp;bar pressure regulator. Pressure transducers monitored various relevant system pressures for redline conditions. The vent and relief valve systems were sized for a worst-case scenario high pressure nitrogen regulator failure in the open condition. Procedures were developed for air dilution in the propane accumulator using nitrogen such that a combustible mixture would never be present.
 </p>
 
 {% with image_src="/static/img/projects/big-friendly-flame/fluids-pid.jpg", image_caption="P&ID for the BFF deliverable design showing propane and nitrogen fluid systems." %}
@@ -132,10 +158,10 @@ Fluids + P&amp;ID outline
 {% endwith %}
 
 <p>
-Pressure drop and mass flow calculations
+An incompressible 1D fluid analysis was used to calculate liquid ejection, gaseous ullage, pump fill, and nitrogen fill mass flow rates. We found that 11&nbsp;kg/s liquid propane could be ejected with a propane  accumulator pressure of 35&nbsp;bar. The nitrogen mass flow rate would be 0.9&nbsp;kg/s at this condition, and the pressure drop between accumulators would be less than 3&nbsp;bar. Propane fill time using the LPG pump was most dependent on the 100&nbsp;lb propane tank valve flow coefficient. We approximated a propane fill time of 82&nbsp;seconds with five tanks in parallel assuming a valve flow coefficient of 0.7. Nitrogen fill time was considerably shorter, approximately 11&nbsp;seconds, since a high flow regulator was used on the nitrogen cylinder. Given these parameters and taking into account vent times, the BFF system could ideally be recycled in less than 2&nbsp;minutes. Additionally, the propane accumulator was large enough for multiple back-to-back firings on one liquid propane filling.
 </p>
 
-{% with left_src="/static/img/projects/big-friendly-flame/fluids-pressure.jpg", left_caption="Pressure drops calculated with mass flow.", center_src="/static/img/projects/big-friendly-flame/fluids-nitrogen.jpg", center_caption="CAD for the nitrogen fluids system.", right_src="/static/img/projects/big-friendly-flame/fluids-propane.jpg", right_caption="CAD for the propane fluids system." %}
+{% with left_src="/static/img/projects/big-friendly-flame/fluids-pressure.jpg", left_caption="Pressure drops calculated with mass flow.", center_src="/static/img/projects/big-friendly-flame/fluids-nitrogen.jpg", center_caption="CAD for the nitrogen fluid system.", right_src="/static/img/projects/big-friendly-flame/fluids-propane.jpg", right_caption="CAD for the propane fluid system." %}
 
     {% include "image-3.html" %}
 {% endwith %}
@@ -143,7 +169,7 @@ Pressure drop and mass flow calculations
 <h3>Structure</h3>
 
 <p>
-Overview, compactness, nitrogen bottle locations, FEAs
+All components for BFF were mounted to a mild steel frame except for the LPG pump and storage tanks. The high pressure nitrogen cylinder could be mounted on or off of the stand. All external fluid connections were located in one corner of the stand and all electrical connections merged into a single junction box. Finite element analysis confirmed the need for ejector tube support due to the momentum of ejecting 11&nbsp;kg/s of propane despite the small moment arm from the main run valve to the ejection point. A nitrogen cylinder support plate also required analysis to minimize deflection caused by up to 150&nbsp;kg of gas cylinder weight. The stand measured 60x120x120&nbsp;cm in dimension and I welded the mild steel stand at Purdue's Bechtel Innovation Design Center to reduce project spending costs.
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/structure-only.jpg", left_caption="BFF structural components on a steel welded frame.", right_src="/static/img/projects/big-friendly-flame/structure-integration.jpg", right_caption="Integration of BFF on the Heathen fire truck art car." %}
@@ -168,6 +194,12 @@ User interface: E-stop, pressure/delay pots, fill/vent switches, igniter/ejector
     {% include "image-2.html" %}
 {% endwith %}
 
+<h3>Testing</h3>
+
+<p>
+
+</p>
+
 <h2 id="burningman">Burning Man 2018</h2>
 
 <p>
@@ -180,6 +212,13 @@ Delivery and integration
 
 <p>
 Operation while at Burning Man
+</p>
+
+
+<h2 id="team">The Team</h2>
+
+<p>
+
 </p>
 
 {% endblock %}
