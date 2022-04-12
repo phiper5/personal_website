@@ -10,15 +10,15 @@ projects = [ \
         "Liquid Rocketry", \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
-        "Propellant Chemistry", \
-        "CELI Fellow", \
-        "Surf CV", \
-        "Vehicle CV", \
-        "Incompressible CFD", \
-        "Hypergolic Combustion CFD", \
-        "MATLAB CEA", \
-        "Altitude Solver", \
-        "Bluetooth Headphones", \
+        #"Propellant Chemistry", \
+        #"CELI Fellow", \
+        #"Surf CV", \
+        #"Vehicle CV", \
+        #"Incompressible CFD", \
+        #"Hypergolic Combustion CFD", \
+        #"MATLAB CEA", \
+        #"Altitude Solver", \
+        #"Bluetooth Headphones", \
         ]
 
 @app.route('/')
