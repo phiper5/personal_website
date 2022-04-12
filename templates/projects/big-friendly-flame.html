@@ -11,7 +11,7 @@
     In spring of 2018 I led a team of 9 students that built a 100&nbsp;ft propane flame effect called Big Friendly Flame (BFF) as part of Purdue's AAE&nbsp;535 Propulsion Design, Build, Test class. Professor Carson Slabaugh and Dr. Rohan Gejji taught the class; Walter Productions funded and advised the project. My contributions ranged from project management to detailed engineering design. Additionally, I committed my summer of 2018 to delivering the flame effect to Walter Productions for Burning Man 2018 (end of August), even after the class was completed.
     </p>
     <p>
-    I structured our semester into a two-step approach: quickly test a <a href="#preliminary-design">preliminary design</a> then plan and build a final <a href="#deliverable-design">deliverable design</a>. The difficulty of multiphase turbulent combustion modeling prompted this approach, as well as the limited time in a semester. Both the preliminary design and deliverable design successfully produced over 100&nbsp;ft flames, the latter of which could do so in a manner conducive to operation in the isolated Black Rock desert, where Burning Man takes place.
+    I structured our semester into a two-step approach: quickly test a <a href="#preliminary-design">preliminary design</a> then plan and build a final <a href="#deliverable-design">deliverable design</a>. The difficulty of multiphase turbulent combustion modeling prompted this approach, as well as the limited time in a semester. Both the preliminary design and deliverable design successfully produced over 100&nbsp;ft flames, the latter of which could operate in the isolated Black Rock desert, where <a href="#burningman">Burning Man 2018</a> took place.
     </p>
 </div>
 <div class="col-xl-1"></div>
@@ -28,7 +28,7 @@
 <h2 id="preliminary-design">Preliminary Design</h2>
 
 <p>
-Overview: Designed quickly, use hardware available at Zucrow labs, test igniter then water then gaseous propane, then liquid propane
+My approach to the problem of building a 100&nbsp;ft propane flame relied heavily on experimentation due to the difficulties in modeling a transient multiphase turbulent flame. Zucrow Laboratories at Purdue University was the ideal site for testing because most of the hardware we needed was already available. The team spent approximately $650 total on preliminary testing, most of which was commercial propane and compressed nitrogen. A small test stand was constructed for the gaseous propane pilot flame and igniter to measure pilot blowout resistance, igniter flame length, and igniter consistency. With the igniter functioning, we moved on to water testing to validate our pressurized liquid ejection height predictions. A few tests were completed with self-pressurized gaseous propane to prove that the 100&nbsp;ft flame height could not be achieved without significant increases in fluid hardware sizing. The majority of preliminary design testing involved measurement of liquid propane flame heights.
 </p>
 
 {% with image_src="/static/img/projects/big-friendly-flame/preliminary-site.jpg", image_caption="The preliminary design testing was sited at Zucrow Laboratories on Purdue's campus." %}
@@ -36,14 +36,32 @@ Overview: Designed quickly, use hardware available at Zucrow labs, test igniter 
 {% endwith %}
 
 <p>
-Quick overview of the P&amp;ID: pressurization scheme, sizing
+Liquid column height scales sublinearly with mass flow rate without taking into account flame buoyancy effects. The flame effect was designed with a nitrogen pressurization scheme because mass flow rate scales with the square root of pressure drop. Propane self pressurization varies with ambient temperature (5 to 13&nbsp;bar), whereas a consistent 25+&nbsp;bar was achievable with nitrogen. Flow resistance was minimized in the ejection fluid pathway by using 1&nbsp;inch tubing and a large propane accumulator exit port. Liquid propane had to be transferred from DOT storage containers to the accumulator by distillation, with an electric heater on the storage tank, since a pump was not available. This process took 10s of minutes and turned out to be a hassle since liquid level gauging was not implemented. Furthermore, the ejector design required a portion of the accumulator to remain as headspace since the nitrogen fluid system was undersized. With time, we were able to "operate" away this difficulty due to familiarity with the system. However, the team decided to opt for a propane pump in the deliverable design.
+</p>
 
 {% with image_src="/static/img/projects/big-friendly-flame/preliminary-pid.jpg", image_caption="P&ID for the preliminary design, mostly using components available at Zucrow Labs." %}
     {% include "image-1.html" %}
 {% endwith %}
 
 <p>
-Igniter testing
+The ignition system consisted of a gaseous propane pilot flame and igniter jet. The always-on pilot needed to be unextinguishable in a wide variety of ambient and operating conditions. The igniter jet needed to be consistently lit by the pilot and needed to consistently light the ejector, which had a mass flow rate 3-4 orders of magnitude larger than the ignition system. Preliminary igniter testing varied the distance between pilot and igniter, distance between pilot and ejector, igniter mass flow rate, and pilot light geometry/materials. Igniter testing uncovered the following findings:
+<ol>
+    <li>
+        The pilot light must be located more than 11&nbsp;cm away from the igniter torch to prevent it from extinguishing by a venturi effect.
+    </li>
+    <li>
+        The pilot light must be located at least 30&nbsp;cm away from the main ejector to prevent it from extinguishing by a venturi effect.
+    </li>
+    <li>
+        Steel wool was effective at preventing the pilot light from extinguishing due to high winds.
+    </li>
+    <li>
+        A ring-shaped pilot light reliably lit the igniter torch in high wind conditions whereas a single-point diffusion pilot flame did not.
+    </li>
+    <li>
+        When the igniter torch failed, the pilot light was sufficient to light the ejector (albeit with a delay) thus acting as a fail-safe.
+    </li>
+</ol>
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/preliminary-igniter-small.jpg", left_caption="Low velocity 25&nbsp;cm igniter flame.", right_src="/static/img/projects/big-friendly-flame/preliminary-igniter-big.jpg", right_caption="Higher velocity 80&nbsp;cm igniter flame." %}
@@ -51,7 +69,7 @@ Igniter testing
 {% endwith %}
 
 <p>
-Initial tests: water + gaseous propane testing
+Water testing allowed for verification of the preliminary design using inert fluids: nitrogen and water. Mass flow rate, nozzle diameter, and wind effects on water column height were checked against our empirical models. We found that the ejector operated best without a nozzle flow restriction because larger water mass flow rates delayed jet breakup into fine droplets. Testing with gaseous propane was limited by the vapor pressure of propane and ejector system sizing. Flames up to 17&nbsp;ft were achieved, as measured by a camera and reference height through some basic trigonometry. With empirical models, we concluded that a fluid system sizing greater than 3&nbsp;inches in internal diameter would be required to achieve a 100&nbsp;ft gaseous propane flame. A gaseous ejector design would also require a custom ASME gaseous propane tank (with a 3&nbsp;inch port) and would suffer from ambient cooling as well as evaporation cooling limiting ejection pressures.
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/preliminary-water.jpg", left_caption="Water testing measured liquid ejection heights.", right_src="/static/img/projects/big-friendly-flame/preliminary-gas.jpg", right_caption="Gaseous propane testing verified hardware operation." %}
@@ -59,7 +77,7 @@ Initial tests: water + gaseous propane testing
 {% endwith %}
 
 <p>
-Liquid propane testing
+Most of the preliminary design testing focused on liquid propane pressurized by a nitrogen ullage, with pressures up to 33&nbsp;bar. We measured flame heights over 100&nbsp;ft using mass flow rates up to 7.5&nbsp;kg/s. For a given fluid system size, liquid propane ejection resulted in much higher flame heights than those from gaseous propane ejection due to the liquid's higher density, and therefore mass flow rate. Ejection velocity increases caused by a restricting nozzle reduced flame height since temperature-driven buoyancy effects dominated the fireball convection flow. Wind speed had the second largest effect on flame height since it prematurely mixed the buoyancy-driven flow. Additionally, tests longer than 1-2&nbsp;seconds reached a peak height upon ejection which rapidly tapered as the nitrogen pressure dropped from the preliminary design's blowdown operation. From these tests, we concluded that a 1&nbsp;inch tube liquid propane ejector with 25&nbsp;bar of nitrogen ullage would be sufficient to consistently achieve 100&nbsp;ft flames, even in moderately windy conditions.
 </p>
 
 {% with image_src="/static/img/projects/big-friendly-flame/preliminary-liquid.jpg", image_caption="Preliminary design liquid propane flames were measured for height." %}
@@ -67,7 +85,7 @@ Liquid propane testing
 {% endwith %}
 
 <p>
-Two phase flow
+Since propane's vapor pressure is above atmospheric, we expected two-phase flow phenomena upon liquid propane ejection. Our ejector design ensured a vapor quality of 0% throughout the ejector tube to prevent two-phase flow choking from limiting mass flow rate. A large pressure drop across the ejection nozzle reduced the fluid to atmospheric pressure, thus causing partial evaporation and expansion of the flow. Larger vapor fractions occurred at higher temperatures due to propane's saturation pressure curve with temperature. And larger vapor fractions resulted in higher boundary layer mixing with ambient air, thus combusting more propane earlier, and reducing total flame height. We concluded that subcooling of the liquid propane before ejection through evaporation cooling would result in higher flame effect heights.
 </p>
 
 {% with image_src="/static/img/projects/big-friendly-flame/preliminary-ejection.jpg", image_caption="Closeup of the preliminary design ejecting liquid propane at various mass flow rates." %}
@@ -75,7 +93,7 @@ Two phase flow
 {% endwith %}
 
 <p>
-Smoke ring generation
+We did not expect a smoke ring phenomenon to occur from the flame effect's operation. A previous Purdue-designed flame effect called the Combustible Vortex Ring Generator (CVRG) was created specifically for large-scale flame/smoke ring generation in 2013. We accidentally replicated CVRG's effect on a much larger scale! A cold and dense propane multiphase liquid droplet core encountered drag which reduced it's velocity as it gained height. Conversely, the hot and light combusted propane/air mixture at the boundary layer rose quickly due to buoyancy. A large-scale vortex formed as the hot buoyant gas recirculated through the core and produced combustion soot. Vortex ring stability and the combustion-generated soot resulted in a 40&nbsp;ft diameter rising smoke ring that lasted up to 10&nbsp;minutes post-ejection. High wind speeds prevented vortex formation and moderate winds prematurely pinched off the vortex.
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/smoke-1.jpg", left_caption="Liquid propane ejection, ignition, and combustion.", center_src="/static/img/projects/big-friendly-flame/smoke-2.jpg", center_caption="Smoke ring generation coupled with combustion.", right_src="/static/img/projects/big-friendly-flame/smoke-3.jpg", right_caption="Post-firing smoke ring vortex stability." %}
@@ -150,7 +168,7 @@ User interface: E-stop, pressure/delay pots, fill/vent switches, igniter/ejector
     {% include "image-2.html" %}
 {% endwith %}
 
-<h3>Burning Man 2018</h3>
+<h2 id="burningman">Burning Man 2018</h2>
 
 <p>
 Delivery and integration
