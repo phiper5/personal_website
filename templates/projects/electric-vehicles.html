@@ -17,7 +17,7 @@
 <div class="col-xl-1"></div>
 <div class="col-xl-5 vert-center">
     <figure>
-    <img class="image-filled pb-1" src="/static/img/projects/bulldogs-racing-electrical/powertrain-top.jpg">
+    <img class="image-filled pb-1" src="/static/img/projects/electric-vehicles/powertrain-top.jpg">
     <figcaption>320 kW of independent rear wheel electric motor drive.</figcaption>
     </figure>
 </div>
@@ -30,7 +30,7 @@
 A system-level design of the vehicle's powertrain required strict adherence to the formula and performance-price trade-offs between commercial-off-the-shelf battery cells, motor inverters, and motors. Many commercial electric vehicles use DC-DC converters to step-up low battery pack voltages, thus reducing I<sup>2</sup>R losses. This practice decreases the number of cells in series and mitigates battery pack energy losses due to cell mismatch and degradation. However, the formula stipulated a maximum tractive system voltage of 300&nbsp;V, which was low enough for me to rule out DC-DC conversion early on in the design process. The formula also restricted maximum power output to 80&nbsp;kW and energy storage to 5.4&nbsp;kWh with an 80% cell derating, which influenced motor and cell selection respectively. The high power-to-weight ratio of electric motors enabled an independent rear wheel drive design with two Emrax 207 motors delivering up to 160&nbsp;Nm at 320&nbsp;A each. Driving the rear wheels with separate motors precluded the need for a differential and chain/gear drive while also reducing axle lengths. The motors were selected to complement a 300&nbsp;V tractive system voltage and 4:1 planetary gearboxes matched the Emrax 207 speed/torque outputs to those necessary for Formula SAE acceleration and autocross events.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/powertrain-isolated.jpg", left_caption="Constant velocity joint on 4:1 planetary gearbox.", right_src="/static/img/projects/bulldogs-racing-electrical/powertrain-rear.jpg", right_caption="Rear view of the powertrain sans axles." %}
+{% with left_src="/static/img/projects/electric-vehicles/powertrain-isolated.jpg", left_caption="Constant velocity joint on 4:1 planetary gearbox.", right_src="/static/img/projects/electric-vehicles/powertrain-rear.jpg", right_caption="Rear view of the powertrain sans axles." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -49,7 +49,7 @@ Battery cell selection was performed in parallel with motor and motor controller
 A123 Systems, a spin-off of MIT, was the premier provider of lithium iron phosphate battery cells at the time. Their AMP20 pouch cell with a 3.3&nbsp;V nominal voltage, 19.5&nbsp;Ah capacity, 10C continuous current rating, and 22C peak (for 10&nbsp;s) current rating was perfectly sized for our vehicle. The high cell capacity meant that all cells could be placed in series, thus circumventing individual cell string fusing requirements in the formula. I designed a battery box with 86 of these cells in two stacks of 21 cells and two stacks of 22 cells to limit voltages for assembly and handling. Formula rules limited battery segments to maximums of 15&nbsp;kg, 120&nbsp;V, and 1.67&nbsp;kWh. The theoretical maximum voltage of the battery (with 3.6&nbsp;V max per cell) was 310&nbsp;V, but charging was limited to 300&nbsp;V to follow the formula and allow for cell inhomogeneities. Overall, the battery pack could supply high enough currents to nearly saturate the two Emrax 207 motors while still allowing for high speed operation at a peak voltage near 300&nbsp;V.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-box-cad.jpg", left_caption="Battery box with four cell stacks and two motor controllers.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-stack-cad.jpg", right_caption="Battery stack CAD of 21 LiFePO<sub>4</sub> cells." %}
+{% with left_src="/static/img/projects/electric-vehicles/battery-box-cad.jpg", left_caption="Battery box with four cell stacks and two motor controllers.", right_src="/static/img/projects/electric-vehicles/battery-stack-cad.jpg", right_caption="Battery stack CAD of 21 LiFePO<sub>4</sub> cells." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -61,7 +61,7 @@ The formula specified additional rules for the use of lithium ion cells in the b
 The formula also had rules for pouch-style cells with laminated aluminum casings that expanded and contracted during operation. To prevent the cells from delaminating, an expansion limiter pressed the cells together, face-to-face, with a nearly constant pressure throughout the cells' operating life. A123 suggested containing the cells at between 0.3 and 1.2&nbsp;bar with cycle life peaking at a cell pressure of 0.8&nbsp;bar. A polyurethane filler, aluminum end plates, and steel threaded rods plimited cell expansion to meet this requirement. As the cells expanded, the filler was compressed, thus reducing the pressure rise. Aluminum end plates transmitted the threaded rod tension evenly across the cell faces, as verified by finite element analysis.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-side.jpg", left_caption="Nominally 69 V battery stack construction.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
+{% with left_src="/static/img/projects/electric-vehicles/battery-side.jpg", left_caption="Nominally 69 V battery stack construction.", right_src="/static/img/projects/electric-vehicles/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -73,7 +73,7 @@ Cells were individually tested for capacity and internal resistance via a custom
 The formula had strict guidelines for materials used within the battery box, all of which had to be UL&nbsp;94&nbsp;V-0 rated (or equivalent). Stratasys RGD525 plastic material was used to 3D print battery stack tab covers on an Objet30 Pro. Specimens of this material were also printed to carry out testing for dielectric strength (ASTM D149 IEC 60243) and fire resistance (UL&nbsp;94&nbsp;V-0). Rogers Corporation PORON&reg; foam was selected for the battery stack expansion limiter system based on its fire rating, Young's modulus, and dielectric strength. Additionally, Kapton tape was used on cell faces and edges as a secondary electrical insulating layer between cells and between high/low voltage systems. My responsibilities ranged from electrical design to CNC machining of battery stack end plates throughout this project!
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/battery-machining.jpg", left_caption="Machining of the battery stack end plates.", center_src="/static/img/projects/bulldogs-racing-electrical/battery-machining-closeup.jpg", center_caption="Closeup of the end plate CNC milling process.", right_src="/static/img/projects/bulldogs-racing-electrical/battery-tab-covers.jpg", right_caption="UL 94 V-0 tab covers were 3D printed." %}
+{% with left_src="/static/img/projects/electric-vehicles/battery-machining.jpg", left_caption="Machining of the battery stack end plates.", center_src="/static/img/projects/electric-vehicles/battery-machining-closeup.jpg", center_caption="Closeup of the end plate CNC milling process.", right_src="/static/img/projects/electric-vehicles/battery-tab-covers.jpg", right_caption="UL 94 V-0 tab covers were 3D printed." %}
     {% include "image-3.html" %}
 {% endwith %}
 
@@ -88,7 +88,7 @@ Battery pack thermal management was considered for the acceleration, autocross, 
 Over 30 pages of formula rules govern the vehicle's high voltage (HV) system, largely to enforce safety, I designed and implemented the precharge/discharge circuitry, high current contactors, fusing, disconnects, safety lighting, and galvanic isolation with ground fault detection for our HV system. A precharge circuit charged the motor controller capacitors at a controlled rate before connecting a high current path through the contactors. The discharge circuit removed charge from these same capacitors upon disabling the HV system in order to prevent driver/crew contact with HV. Two single pole, normally open Kilovac EV200 contactors were used in the high current path to isolate the battery from the motor controllers. A Littelfuse L50S200 allowed for up to 200&nbsp;A continuously, broke at 600&nbsp;A in 6&nbsp;s, and broke at 2000&nbsp;A in 3&nbsp;ms. With stack internal resistances on the order of 0.1&nbsp;m&ohm;, this fuse would have been more than accurate to mitigate a short circuit. Safety lighting was designed to run directly off of the HV through a DC-DC step-down converter. A simpler solution would have used a voltage divider, but power losses of such a design were considered excessive. The formula also required galvanic isolation between the high and low voltage systems, along with ground fault detection between the two systems. Part of the HV circuit diagram is shown below for reference.
 </p>
 
-{% with image_src="/static/img/projects/bulldogs-racing-electrical/hv-schematic.jpg", image_caption="Schematic of high voltage control system with contactor, precharge, discharge, and lighting circuits." %}
+{% with image_src="/static/img/projects/electric-vehicles/hv-schematic.jpg", image_caption="Schematic of high voltage control system with contactor, precharge, discharge, and lighting circuits." %}
     {% include "image-1.html" %}
 {% endwith %}
 
@@ -96,7 +96,7 @@ Over 30 pages of formula rules govern the vehicle's high voltage (HV) system, la
 I designed a printed circuit board (PCB) to house the high voltage control circuitry in one convenient place. Board design with galvanically isolated HV and LV systems required a wide neutral zone spacing and a conformal coating. With this design, all HV components could be hard-mounted in the battery box in one location, which eased packaging, circuit debugging, and battery/controller interfaces.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/hv-pcb.jpg", left_caption="High voltage control custom PCB.", right_src="/static/img/projects/bulldogs-racing-electrical/hv-controller.jpg", right_caption="Bamocar motor controller with cover removed." %}
+{% with left_src="/static/img/projects/electric-vehicles/hv-pcb.jpg", left_caption="High voltage control custom PCB.", right_src="/static/img/projects/electric-vehicles/hv-controller.jpg", right_caption="Bamocar motor controller with cover removed." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -115,7 +115,7 @@ The low voltage (LV) system interfaced with the driver through the dashboard, br
 A Beaglebone Black microcontroller running Linux was used to control the vehicle. It could interface with an SD card for storage, USB for the HD camera, analog inputs for the potentiometers, as well as digital I/O for the infrared sensors and inertial measurement system. On top of all of that, it could broadcast a Wifi signal for interfacing with race engineers in real-time. I wrote the control code in Python with an object oriented structure to organize the driver, powertrain, sensor, and engineer interfaces.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/lv-pcb.jpg", left_caption="Low voltage PCB for Beaglebone Black controller.", right_src="/static/img/projects/bulldogs-racing-electrical/lv-gfd.jpg", right_caption="Custom ground fault detector PCB as-installed." %}
+{% with left_src="/static/img/projects/electric-vehicles/lv-pcb.jpg", left_caption="Low voltage PCB for Beaglebone Black controller.", right_src="/static/img/projects/electric-vehicles/lv-gfd.jpg", right_caption="Custom ground fault detector PCB as-installed." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -123,7 +123,7 @@ A Beaglebone Black microcontroller running Linux was used to control the vehicle
 Safety was of the utmost importance and the formula strictly defined a LV safety interlock system which all LV current had to pass through. Emergeny stop switches were required in several places around the vehicle, a brake overtravel switch would trigger in case of brake failure, and a ground fault detection could directly turn off all LV current through a relay. The ground fault detector was provided by a competition sponsor, and I designed a LV relay board to condense most of the safety interlock system into one location. A startup buzzer and safety lighting were also required, and ran directly off of current passing through the safety interlock system.
 </p>
 
-{% with left_src="/static/img/projects/bulldogs-racing-electrical/lv-wiring.jpg", left_caption="Wiring harness installation on BR2016.", right_src="/static/img/projects/bulldogs-racing-electrical/lv-coding.jpg", right_caption="Fixing bugs in the BR2014 code on a track day." %}
+{% with left_src="/static/img/projects/electric-vehicles/lv-wiring.jpg", left_caption="Wiring harness installation on BR2016.", right_src="/static/img/projects/electric-vehicles/lv-coding.jpg", right_caption="Fixing bugs in the BR2014 code on a track day." %}
     {% include "image-2.html" %}
 {% endwith %}
 

@@ -8,8 +8,8 @@ app = Flask(__name__)
 projects = [ \
         "Big Friendly Flame", \
         "Liquid Rocketry", \
-        "Bulldogs Racing Mechanical", \
-        "Bulldogs Racing Electrical", \
+        "Vehicle Dynamics", \
+        "Electric Vehicles", \
         "Propellant Chemistry", \
         "CELI Fellow", \
         "Surf CV", \
