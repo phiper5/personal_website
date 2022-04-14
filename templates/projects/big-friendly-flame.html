@@ -8,7 +8,7 @@
 <div class="row">
 <div class="col-xl-6">
     <p>
-    In spring of 2018 I led a <a href="#team">team</a> of 9 students that built a 100&nbsp;ft propane flame effect called Big Friendly Flame (BFF) as part of Purdue's AAE&nbsp;535 Propulsion Design, Build, Test class. Professor Carson Slabaugh and Dr. Rohan Gejji taught the class; Walter Productions funded and advised the project. My contributions ranged from project management to detailed engineering design. Additionally, I committed my summer of 2018 to delivering the flame effect to Walter Productions for Burning Man 2018 (end of August), even after the class was completed.
+    In spring of 2018 I led a <a href="#team">team</a> of 9 students that built a 100&nbsp;ft propane flame effect called Big Friendly Flame (BFF) as part of Purdue's AAE&nbsp;535 Propulsion Design, Build, Test class. Professor Carson Slabaugh and Dr. Rohan Gejji taught the class while funding was provided by a large Burning Man camp. My contributions ranged from project management to detailed engineering design. Additionally, I committed my summer of 2018 to delivering the flame effect for Burning Man 2018 (end of August), even after the class was completed.
     </p>
     <p>
     I structured our semester into a two-step approach: quickly test a <a href="#preliminary-design">preliminary design</a> then plan and build a final <a href="#deliverable-design">deliverable design</a>. The difficulty of multiphase turbulent combustion modeling prompted this approach, as well as the limited time in a semester. Both the preliminary design and deliverable design successfully produced over 100&nbsp;ft flames, the latter of which could operate in the isolated Black Rock desert, where <a href="#burningman">Burning Man 2018</a> took place.
@@ -97,7 +97,6 @@ We did not expect a smoke ring phenomenon to occur from the flame effect's opera
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/smoke-1.jpg", left_caption="Liquid propane ejection, ignition, and combustion.", center_src="/static/img/projects/big-friendly-flame/smoke-2.jpg", center_caption="Smoke ring generation coupled with combustion.", right_src="/static/img/projects/big-friendly-flame/smoke-3.jpg", right_caption="Post-firing smoke ring vortex stability." %}
-
     {% include "image-3.html" %}
 {% endwith %}
 
@@ -106,7 +105,7 @@ We did not expect a smoke ring phenomenon to occur from the flame effect's opera
 <div class="row">
 <div class="col-xl-6">
     <p>
-    The preliminary design verified that a 100&nbsp;ft flame could be produced by a liquid propane ejector pressurized with gaseous nitrogen. However, the deliverable design required significantly more design effort such that it was compact enough for mounting on a fire truck and simple enough to be used by non-engineer operators. In addition to propane and nitrogen fluid systems, the deliverable design had structural and electrical design elements that were not necessary in the preliminary design. All components had to be sourced in a short time period since the final product would be shipped to Walter Productions by late summer, and to Burning Man in the middle of August. I spent a large portion of my 2018 summer welding the stand, wiring the electronics, building the fluid systems, and testing the finished product. The following requirements were developed to guide the deliverable design:
+    The preliminary design verified that a 100&nbsp;ft flame could be produced by a liquid propane ejector pressurized with gaseous nitrogen. However, the deliverable design required significantly more design effort such that it was compact enough for mounting on a fire truck and simple enough to be used by non-engineer operators. In addition to propane and nitrogen fluid systems, the deliverable design had structural and electrical design elements that were not necessary in the preliminary design. All components had to be sourced in a short time period since the final product would be shipped to our sponsor by late summer, and to Burning Man in the middle of August. I spent a large portion of my 2018 summer welding the stand, wiring the electronics, building the fluid systems, and testing the finished product. The following requirements were developed to guide the deliverable design:
     <ol>
         <li>
             Develop a flame effect with an 80-100&nbsp;ft height.
@@ -115,7 +114,7 @@ We did not expect a smoke ring phenomenon to occur from the flame effect's opera
             Use propane and air as the fuel and oxidizer respectively.
         </li>
         <li>
-            The flame effect must be operable on Heathen and standalone.
+            The flame effect must be operable on a vehicle and standalone.
         </li>
         <li>
             Conform the fuel system to NFPA codes 54, 58, and 160.
@@ -141,7 +140,7 @@ We did not expect a smoke ring phenomenon to occur from the flame effect's opera
 <div class="col-xl-1"></div>
 <div class="col-xl-5 vert-center">
     <figure>
-    <img class="image-filled pb-1" src="/static/img/projects/big-friendly-flame/deliverable-design.jpg">
+    <img class="image-filled pb-1" src="/static/img/projects/big-friendly-flame/deliverable-cad.jpg">
     <figcaption>Final CAD for the deliverable design of BFF.</figcaption>
     </figure>
 </div>
@@ -162,7 +161,6 @@ An incompressible 1D fluid analysis was used to calculate liquid ejection, gaseo
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/fluids-pressure.jpg", left_caption="Pressure drops calculated with mass flow.", center_src="/static/img/projects/big-friendly-flame/fluids-nitrogen.jpg", center_caption="CAD for the nitrogen fluid system.", right_src="/static/img/projects/big-friendly-flame/fluids-propane.jpg", right_caption="CAD for the propane fluid system." %}
-
     {% include "image-3.html" %}
 {% endwith %}
 
@@ -172,14 +170,14 @@ An incompressible 1D fluid analysis was used to calculate liquid ejection, gaseo
 All components for BFF were mounted to a mild steel frame except for the LPG pump and storage tanks. The high pressure nitrogen cylinder could be mounted on or off of the stand. All external fluid connections were located in one corner of the stand and all electrical connections merged into a single junction box. Finite element analysis confirmed the need for ejector tube support due to the momentum of ejecting 11&nbsp;kg/s of propane despite the small moment arm from the main run valve to the ejection point. A nitrogen cylinder support plate also required analysis to minimize deflection caused by up to 150&nbsp;kg of gas cylinder weight. The stand measured 60x120x120&nbsp;cm in dimension and I welded the mild steel stand at Purdue's Bechtel Innovation Design Center to reduce project spending costs.
 </p>
 
-{% with left_src="/static/img/projects/big-friendly-flame/structure-only.jpg", left_caption="BFF structural components on a steel welded frame.", right_src="/static/img/projects/big-friendly-flame/structure-integration.jpg", right_caption="Integration of BFF on the Heathen fire truck art car." %}
+{% with left_src="/static/img/projects/big-friendly-flame/structure-only.jpg", left_caption="BFF structural components on a steel welded frame.", right_src="/static/img/projects/big-friendly-flame/structure-integration.jpg", right_caption="Integration of BFF on a fire truck art car." %}
     {% include "image-2.html" %}
 {% endwith %}
 
 <h3>Electronics/Control</h3>
 
 <p>
-Overview: Power distribution, control circuitry, safety interlock
+The electronics and control system contains power distribution, safety interlock, and feedback/control circuitry all used to safely operate BFF. I designed and built the wiring diagram and enclosure which contained an AC/DC power supply, Ruggeduino microcontroller, thermocouple signal conditioner, 24 VDC relay DIN module, and two relay DIN modules all housed in a NEMA 3R enclosure on a single 10&nbsp;inch DIN rail. The 110&nbsp;VAC to 24&nbsp;VDC, 10&nbsp;A AC/DC converter supplied power to the entire system. A Ruggeduino microcontroller read instrumentation, actuated valves, and responded to user input. The thermocouple signal conditioner converted liquid fill level thermocouple milliVolt output to a 0-5&nbsp;V signal readable by the Ruggeduino analog-to-digital converter. A 24&nbsp;VDC relay DIN module powered the individual valve relays, with N-MOSFET circuitry to power each coil from the Ruggeduino. The two relay DIN modules housed three individual valve relays each, for a total of six valve relays. All system power was routed through an emergency stop button on the user control panel and on the BFF stand.
 </p>
 
 {% with image_src="/static/img/projects/big-friendly-flame/electronics-schematic.jpg", image_caption="Electronics schematic detailing power distribution, control circuitry, and a safety interlock." %}
@@ -187,7 +185,7 @@ Overview: Power distribution, control circuitry, safety interlock
 {% endwith %}
 
 <p>
-User interface: E-stop, pressure/delay pots, fill/vent switches, igniter/ejector buttons
+The handheld user controller consisted of arm, vent, fill, and pressurize toggle switches. Software control logic verified user inputs before valve actuation to maintain a safe system at all times. An igniter button could be used to test the gaseous propane igniter before running the main autosequence, which was actuated through the ejector button. Two potentiometers could be used to control accumulator pressure and igniter delay within software-verified safe bounds. LEDs displayed power and pressure feedback. And most importantly, a large E-stop button was displayed prominently for shutting down the entire system (through hardware, not software), thus returning all valves to their safe state. Although never fully implemented, a DMX connector was added to the handheld enclosure for synchronization/timing autosequences with music. Overall, these user inputs/outputs allowed for control over the flame effect without overcomplication, and without compromising safety.
 </p>
 
 {% with left_src="/static/img/projects/big-friendly-flame/electronics-box.jpg", left_caption="Electronics enclosure for environmental protection.", right_src="/static/img/projects/big-friendly-flame/electronics-controller.jpg", right_caption="Handheld controller for the flame effect." %}
@@ -197,28 +195,29 @@ User interface: E-stop, pressure/delay pots, fill/vent switches, igniter/ejector
 <h3>Testing</h3>
 
 <p>
-
+The completed deliverable design was tested at Purdue's Zucrow Labs during the summer of 2018 to verify performance before shipment to our sponsor. Most testing was completed in three days and the flame effect operated similarly to the preliminary design. A final test was complted in July to fully shakedown the filling/venting/firing procedures and electronics/control scheme. Overall, BFF performed as expected when tested at Purdue and we were able to ship the flame effect on time for integration at our sponsor's facility and operation at Burning Man 2018!
 </p>
+
+{% with left_src="/static/img/projects/big-friendly-flame/deliverable-build.jpg", left_caption="Fully assembled deliverable design.", center_src="/static/img/projects/big-friendly-flame/deliverable-fire.jpg", center_caption="Night firing of the deliverable design.", right_src="/static/img/projects/big-friendly-flame/deliverable-ring.jpg", right_caption="Smoke rings on a sunny Indiana day." %}
+    {% include "image-3.html" %}
+{% endwith %}
+
 
 <h2 id="burningman">Burning Man 2018</h2>
 
 <p>
-Delivery and integration
+The deliverable design of BFF was crated and shipped to our sponsor in July 2018 along with a four page set of notes for assembly, integration, operations, and upgrades. The sponsor's fire team, including some of our Purdue team, handled operations while at Burning Man. Filling, venting, and safing were largely done by the fire team, but ignition and ejection were shared among the crowds of interested passerbys while on the playa. It was truly an awesome experience to see this flame effect from design on a whiteboard to operation on desert nights. I can't thank our sponsor (who remain unnamed for privacy) enough for their support and trust in our team!
 </p>
 
-{% with left_src="/static/img/projects/big-friendly-flame/burningman-big.jpg", left_caption="BFF on the night of the Man Burn.", right_src="/static/img/projects/big-friendly-flame/burningman-small.jpg", right_caption="The beginnings of a BFF firing." %}
+{% with left_src="/static/img/projects/big-friendly-flame/burningman-big.jpg", left_caption="The fire team operates BFF at the Man Burn.", right_src="/static/img/projects/big-friendly-flame/burningman-small.jpg", right_caption="BFF illuminates the playa on a dark desert night." %}
     {% include "image-2.html" %}
 {% endwith %}
-
-<p>
-Operation while at Burning Man
-</p>
 
 
 <h2 id="team">The Team</h2>
 
 <p>
-
+I had the privilege of leading an incredible team of graduate and undergraduate students. Hasan, Blair, Tristan, Mark, Naveen, Steven, Angel, and Brandon did an amazing job throughout the semester. Some of the team even contributed over the summer, helping to see through final fabrication, testing, and delivery of the flame effect. Professor Slabaugh and Dr. Gejji contributed immensely to this project, always guiding us towards the path of reason as our imaginations ran wild. Alicia, Jason, and Ben had worked on previous flame effects while students at Purdue, and all three of them were extremely helpful throughout the project. Lastly, our sponsor organization and their awesome team of designers, creators, engineers, and friends made this project possible. Thank you so much to everyone that helped turn Big Friendly Flame from idea to reality!
 </p>
 
 {% endblock %}
