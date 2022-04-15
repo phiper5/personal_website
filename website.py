@@ -44,9 +44,9 @@ def page_project_names(project_name):
         abort(404)
     return render_template('/projects/'+project_name+'.html', title=title)
 
-@app.route('/hobbies')
-def page_hobbies():
-    return render_template('hobbies.html', title='Hobbies')
+@app.route('/outdoors')
+def page_outdoors():
+    return render_template('outdoors.html', title='Outdoors')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
