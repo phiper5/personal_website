@@ -15,7 +15,7 @@
     </p>
 </div>
 <div class="col-xl-1"></div>
-<div class="col-xl-5 vert-center">
+<div class="col-xl-5 d-flex align-items-center">
     <figure>
     <img class="image-filled pb-1" src="/static/img/projects/electric-vehicles/powertrain-top.jpg">
     <figcaption>320 kW of independent rear wheel electric motor drive.</figcaption>
@@ -61,8 +61,8 @@ The formula specified additional rules for the use of lithium ion cells in the b
 The formula also had rules for pouch-style cells with laminated aluminum casings that expanded and contracted during operation. To prevent the cells from delaminating, an expansion limiter pressed the cells together, face-to-face, with a nearly constant pressure throughout the cells' operating life. A123 suggested containing the cells at between 0.3 and 1.2&nbsp;bar with cycle life peaking at a cell pressure of 0.8&nbsp;bar. A polyurethane filler, aluminum end plates, and steel threaded rods limited cell expansion to meet this requirement. As the cells expanded, the filler was compressed, thus reducing the pressure rise. Aluminum end plates transmitted the threaded rod tension evenly across the cell faces, as verified by finite element analysis.
 </p>
 
-{% with left_src="/static/img/projects/electric-vehicles/battery-side.jpg", left_caption="Nominally 69 V battery stack construction.", right_src="/static/img/projects/electric-vehicles/battery-top.jpg", right_caption="Battery stack BMS and verification connections." %}
-    {% include "image-2.html" %}
+{% with left_src="/static/img/projects/electric-vehicles/battery-side.jpg", left_caption="Nominally 69 V battery stack construction.", center_src="/static/img/projects/electric-vehicles/battery-stacks.jpg", center_caption="Four completed and compressed battery stacks.", right_src="/static/img/projects/electric-vehicles/battery-box-welding.jpg", right_caption="Battery box sheet metal fabrication." %}
+    {% include "image-3.html" %}
 {% endwith %}
 
 <p>
@@ -123,7 +123,7 @@ A Beaglebone Black microcontroller running Linux was used to control the vehicle
 Safety was of the utmost importance and the formula strictly defined a LV safety interlock system which all LV current had to pass through. Emergeny stop switches were required in several places around the vehicle, a brake overtravel switch would trigger in case of brake hydraulics failure, and a ground fault detection could directly turn off all LV current through a relay. The ground fault detector was provided by a competition sponsor, and I designed a LV relay board to condense most of the safety interlock system into one location. A startup buzzer and safety lighting were also required, and ran directly off of current passing through the safety interlock system.
 </p>
 
-{% with left_src="/static/img/projects/electric-vehicles/lv-wiring.jpg", left_caption="Wiring harness installation on BR2016.", right_src="/static/img/projects/electric-vehicles/lv-coding.jpg", right_caption="Fixing bugs in the BR2014 code on a track day." %}
+{% with left_src="/static/img/projects/electric-vehicles/lv-wiring.jpg", left_caption="Wiring harness and coolant routing on BR2016.", right_src="/static/img/projects/electric-vehicles/lv-coding.jpg", right_caption="Fixing bugs in the BR2014 code on a track day." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -138,7 +138,7 @@ Bulldogs Racing was a multiyear team effort involving undergraduates, graduates,
 </p>
 </div>
 <div class="col-xl-1"></div>
-<div class="col-xl-5 vert-center">
+<div class="col-xl-5 d-flex align-items-center">
     <figure>
     <img class="image-filled pb-1" src="/static/img/projects/vehicle-dynamics/team-photo.jpg">
     <figcaption>The Bulldogs Racing undergraduate team.</figcaption>

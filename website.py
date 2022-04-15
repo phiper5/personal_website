@@ -11,6 +11,7 @@ projects = [ \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
         #"Propellant Chemistry", \
+        #"Analytical Chemistry", \
         #"CELI Fellow", \
         #"Surf CV", \
         #"Vehicle CV", \
@@ -42,6 +43,10 @@ def page_project_names(project_name):
     if title not in projects:
         abort(404)
     return render_template('/projects/'+project_name+'.html', title=title)
+
+@app.route('/hobbies')
+def page_hobbies():
+    return render_template('hobbies.html', title='Hobbies')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

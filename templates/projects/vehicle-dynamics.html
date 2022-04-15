@@ -15,7 +15,7 @@
     </p>
 </div>
 <div class="col-xl-1"></div>
-<div class="col-xl-5 vert-center">
+<div class="col-xl-5 d-flex align-items-center">
     <figure>
     <img class="image-filled pb-1" src="/static/img/projects/vehicle-dynamics/historical-car-2016.jpg">
     <figcaption>Bulldogs Racing 2016</figcaption>
@@ -92,7 +92,7 @@ The typical Formula SAE steering design uses a rack and pinion connected through
 I started the steering design by fixing driver torque at the steering wheel and determining steering ratio from tire angle requirements. Once the ratio and forces were sorted, a two dimensional top view model of the vehicle steering was used to determine Ackermann geometry, which is used to allow the inside wheel to turn more than the outer one, thus reducing tire scrub in tight corners. The steering rack was placed forward of the upright steering link to enable a progressive Ackermann geometry, creating little steering angle difference in low angle corners and large wheel angle differences in tight, slow corners. This geometry is ideal for Formula SAE as it allows for less scrub during sharp turns while still giving good turn-in performance for larger radius corners. Additionally it has the added benefit of making the vehicle easy to move around the paddock by limiting tire scrub during sharp turns. Once the 2D model was completed, the geometry could be translated to three dimensions to determine chassis mounting points and interferences. Additionally the 3D model allowed for integration with the suspension model at the upright.
 </p>
 
-{% with left_src="/static/img/projects/vehicle-dynamics/plastic-upright.jpg", left_caption="3D printed plastic upright to verify steering travel.", right_src="/static/img/projects/vehicle-dynamics/steering-column.jpg", right_caption="Fully installed steering column, rack, and rods." %}
+{% with left_src="/static/img/projects/vehicle-dynamics/plastic-upright.jpg", left_caption="3D printed plastic upright to verify suspension fit.", right_src="/static/img/projects/vehicle-dynamics/steering-column.jpg", right_caption="Fully installed steering column, rack, and rods." %}
     {% include "image-2.html" %}
 {% endwith %}
 
@@ -133,7 +133,7 @@ Bulldogs Racing was a multiyear team effort involving undergraduates, graduates,
 </p>
 </div>
 <div class="col-xl-1"></div>
-<div class="col-xl-5 vert-center">
+<div class="col-xl-5 d-flex align-items-center">
     <figure>
     <img class="image-filled pb-1" src="/static/img/projects/vehicle-dynamics/team-photo.jpg">
     <figcaption>The Bulldogs Racing undergraduate team.</figcaption>

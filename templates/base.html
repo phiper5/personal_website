@@ -32,11 +32,12 @@
 
     <a {% if title == 'Home' %} class="sidebar-active" {% endif %}
         href="/">Home</a>
-    <a {% if title == 'Projects' %} class="sidebar-active" {% endif %}
+    <a {% if '/projects' in request.path %} class="sidebar-active" {% endif %}
         href="/projects">Projects</a>
     <!--<a href="/publications">Publications</a>-->
     <!--<a href="/books">Book&nbsp;Reviews</a>-->
-    <a href="/hobbies">Hobbies</a>
+    <a {% if title == 'Hobbies' %} class ="sidebar-active" {% endif %}
+        href="/hobbies">Hobbies</a>
     <!--<a href="/cv">Curriculum&nbsp;Vitae</a>-->
 </div>
 
