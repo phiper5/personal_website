@@ -5,12 +5,79 @@
 
 <h1>{{ title }}</h1>
 
-<h2>Fluid Systems</h2>
+<div class="row">
+<div class="col-xl-6">
+    <p>
+    Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007. During my first year with the team we competed at the Formula SAE Hybrid competition, taking 3rd place in 2014. We converted to an all-electric team for my last year and a half.
+    </p>
+    <p>
+    From 2015-2016 I was Chief Engineer of the <a href="#team">team</a>, during which time I led design and fabrication of the suspension, steering, brakes, and chassis portions of the car. My approach for vehicle dynamics design started at the <a href="#tires">tires</a>, then worked through <a href="#suspension">suspension</a> and <a href="#chassis">chassis</a>, and finished with <a href="#steering">steering</a> and <a href="#brakes">brakes</a>.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex align-items-center">
+    <figure>
+    <img class="image-filled pb-1" src="/static/img/projects/liquid-rocketry/task4-plume.jpg">
+    <figcaption>Plume from kerosene-oxygen combustor</figcaption>
+    </figure>
+</div>
+</div>
 
-<h2>Control System</h2>
 
 <h2>Kerosene and H<sub>2</sub>O<sub>2</sub> Combustor</h2>
 
+<p>
+
+</p>
+
+{% with image_src="/static/img/projects/liquid-rocketry/task1-cad.jpg", image_caption="CAD cross section of kerosene and hydrogen peroxide combustor." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 d-flex justify-content-center">
+        <figure>
+            <video class="image-filled pb-1" controls>
+                <source src="/static/img/projects/liquid-rocketry/task1-video.mp4" type="video/mp4">
+            </video>
+            <figcaption>Kerosene-H<sub>2</sub>O<sub>2</sub> combustor test firing with pressure trace.</figcaption>
+        </figure>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+
 <h2>Kerosene and O<sub>2</sub> Combustor</h2>
+
+{% with image_src="/static/img/projects/liquid-rocketry/task4-cad.jpg", image_caption="CAD cross section of kerosene-oxygen combustor." %}
+    {% include "image-1.html" %}
+{% endwith %}
+
+{% with left_src="/static/img/projects/liquid-rocketry/task4-bare.jpg", left_caption="Installation of combustor on the test stand.", center_src="/static/img/projects/liquid-rocketry/task4-nozzle.jpg", center_caption="Combustor fully plumbed and wired.", right_src="/static/img/projects/liquid-rocketry/task4-firing.jpg", right_caption="Plume with mach diamonds during a test firing." %}
+    {% include "image-3.html" %}
+{% endwith %}
+
+<h2>Fluid Systems</h2>
+
+{% with left_src="/static/img/projects/liquid-rocketry/pid-h2.jpg", left_caption="Hydrogen P&ID for combustor and igniter.", center_src="/static/img/projects/liquid-rocketry/pid-n2.jpg", center_caption="P&ID for nitrogen pressurization and purge.", right_src="/static/img/projects/liquid-rocketry/pid-h2o.jpg", right_caption="High flow, high pressure water cooling P&ID." %}
+    {% include "image-3.html" %}
+{% endwith %}
+
+{% with left_src="/static/img/projects/liquid-rocketry/stand-panel-components.jpg", left_caption="Components for nitrogen panel, preparing for build.", right_src="/static/img/projects/liquid-rocketry/stand-panel-built.jpg", right_caption="Nitrogen panel assembled with room for expansion." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+<h2>Structure</h2>
+
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/liquid-rocketry/stand-tanks-empty.jpg", left_caption="Welding completed for the tank stand.", center_src="/static/img/projects/liquid-rocketry/stand-tanks-full.jpg", center_caption="Tank stand installed in test cell.", right_src="/static/img/projects/liquid-rocketry/pid-fuel.jpg", right_caption="Kerosene P&ID with legend omitted." %}
+    {% include "image-3.html" %}
+{% endwith %}
+
+
+<h2>Electronics/Control</h2>
 
 {% endblock %}
