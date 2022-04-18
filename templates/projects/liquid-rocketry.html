@@ -28,7 +28,7 @@ The kerosene and hydrogen peroxide combustor (unaffectionately named the "Task&n
 </p>
 
 <p>
-Flow through the combustor started with 90wt% hydrogen peroxide injected through a 25&nbsp;mm inner diameter silver-based catalyst bed to decompose the H<sub>2</sub>O<sub>2</sub> to approximately 1030&nbsp;K hot oxygen and steam. An orifice plate with 16&nbsp;holes prevented backflow of carbon-containing combustion products that could be caused by small pressure instabilities in the combustion chamber. After a slight contraction in the chamber diameter, fuel was radially injected through four holes into the hot oxygen and steam flow to promote mixing at a stoichiometric mixture ratio of 7.25. A rearward-facing axisymmetric step further promoted mixing while acting as a flame holder, increasing the internal dimaeter from 20 to 30&nbsp;mm. A thin yttria-stabilized zirconia thermal barrier coating protected the flame holder section of the combustor from the high-enthalpy combustion gases, which had temperatures up to 2800&nbsp;K when operated near stoichiometric conditions. Downstream of the step, a fuel film injector introduced a low-velocity annular kerosene flow through a thin axisymmetric gap to cool the inner wall of an annular sample chamber liner. The sample length was long enough that phase transition and carbon deposition from the fuel film occurred on the sample. A graphite converging-divergizing nozzle with a 114&nbsp;mm throat diameter choked the flow to achieve chamber pressures up to 4.8&nbsp;MPa
+Flow through the combustor started with 90&nbsp;wt.% hydrogen peroxide injected through a 25&nbsp;mm inner diameter silver-based catalyst bed to decompose the H<sub>2</sub>O<sub>2</sub> to approximately 1030&nbsp;K hot oxygen and steam. An orifice plate prevented backflow of carbon-containing combustion products that could be caused by small pressure instabilities in the combustion chamber. After a slight contraction in the chamber diameter, fuel was radially injected through four holes into the hot oxygen and steam flow to promote mixing at a stoichiometric mixture ratio of 7.25. A rearward-facing axisymmetric step further promoted mixing while acting as a flame holder, increasing the internal dimaeter from 20 to 30&nbsp;mm. A thin yttria-stabilized zirconia thermal barrier coating (TBC) protected the flame holder section of the combustor from the high-enthalpy combustion gases, which had temperatures up to 2800&nbsp;K when operated near stoichiometric conditions. Downstream of the step, a fuel film injector introduced a low-velocity annular kerosene flow through a thin axisymmetric gap to cool the inner wall of an annular sample chamber liner. The sample length was long enough that phase transition and carbon deposition from the fuel film occurred on the sample. A graphite converging-divergizing nozzle with a 114&nbsp;mm throat diameter choked the flow to achieve chamber pressures up to 5&nbsp;MPa
 </p>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task1-cad.jpg", image_caption="CAD cross section of kerosene and hydrogen peroxide combustor." %}
@@ -36,7 +36,7 @@ Flow through the combustor started with 90wt% hydrogen peroxide injected through
 {% endwith %}
 
 <p>
-The combustor was operated in two modes: monopropellant and bipropellant mode. In monopropellant mode only hydrogen peroxide propellant was injected through the catalyst bed, while high pressure nitrogen was purged through the fuel injectors to prevent backflow of hot oxygen. Chamber pressures for monopropellant mode were approximately half those of bipropellant mode. The main fuel and fuel film injector were switched to kerosene during bipropellant mode, which always followed a brief period of monopropellant mode to verify catalyst bed operation. The shutdown procedure consisted of purging nitrogen through the fuel orifices first, followed by hydrogen peroxide shutdown second, all occurring within a few tenths of a second. Total test times were typically capped at around 15&nbsp;seconds, although later testing in a vacuum chamber completed test times up to 30&nbsp;seconds.
+The combustor was operated in two modes: monopropellant and bipropellant mode. In monopropellant mode, hydrogen peroxide propellant was injected through the catalyst bed while high pressure nitrogen was purged through the fuel injectors to prevent backflow of hot oxygen. Chamber pressures for monopropellant mode were approximately half those of bipropellant mode. The main fuel and fuel film injector were switched to kerosene during bipropellant mode, which always followed a brief period of monopropellant mode to verify catalyst bed operation. The shutdown procedure consisted of purging nitrogen through the fuel orifices first, followed by hydrogen peroxide shutdown second, all occurring within a few tenths of a second. Total test times were typically capped at around 15&nbsp;seconds, although later testing in a vacuum chamber had test times up to 30&nbsp;seconds.
 </p>
 
 <div class="row d-flex justify-content-center">
@@ -64,12 +64,16 @@ The combustor was largely designed for removable sample access, with minimal cha
 <h2 id="task4">Kerosene and O<sub>2</sub> Combustor</h2>
 
 <p>
-
+I designed the fuel film oxygen-kerosene carbonaceous deposit combustor (FFOKCDC) to build upon successes of the Task&nbsp;1 combustor while correcting some of its shortcomings. Switching oxidizers from hydrogen peroxide to gaseous oxygen allowed for conditions that more closely approximated those of oxygen-rich staged combustion engines. FFOKCDC was also designed for steady-state operation by using water cooling in the combustion chamber and nozzle. I integrated oxidizer flow control via a sonic venturi directly into the combustor, between the igniter and combustion chamber, to enhance axisymmetry for model validation. The use of gaseous oxygen instead of hydrogen peroxide also required an igniter, which I designed based on Zucrow heritage igniters with a few key improvements: adjustable spark gap set screw with compression retainer, hydrogen injection at the spark point to ensure ignitable mixture, and use of low-cost Auburn furnace igniters. Additionally, water cooling designs often suffer from thermal expansion failures, especially with such thin chamber liners, which was addressed through a graphite gasket thermal expansion joint at the nozzle.
 </p>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task4-cad.jpg", image_caption="CAD cross section of kerosene-oxygen combustor." %}
     {% include "image-1.html" %}
 {% endwith %}
+
+<p>
+The requirement for an axisymmetric flow domain drove the design of FFOKCDC. The principle design feature was that the igniter nozzle also acted as the oxygen sonic venturi used for mass flow rate measurements. Thus, the oxygen could be introduced in an axisymmetric manner with the Mach&nbsp;1 throat acting as a CFD boundary condition. The startup transient for FFOKCDC began with oxygen-rich ignition in the igniter, quickly followed by hydrogen-rich ignition in the main combustion chamber. Hydrogen in the igniter was turned off and then the oxygen flow was ramped up until the main combustion chamber was burning an oxygen-rich mixture at the nominal oxidizer mass flow rate. Lastly, hydrogen in the main injector was switched to kerosene at a nominal mixture ratio of around 2.3 (depended on the chamber pressure). The main injector was a shear coaxial element with oxygen on the inside and fuel in the outer annulus. Water film coolant was injected just upstream of the main nozzle to ensure its integrity.
+</p>
 
 {% with left_src="/static/img/projects/liquid-rocketry/task4-bare.jpg", left_caption="Installation of combustor on the test stand.", center_src="/static/img/projects/liquid-rocketry/task4-nozzle.jpg", center_caption="Combustor fully plumbed and wired.", right_src="/static/img/projects/liquid-rocketry/task4-firing.jpg", right_caption="Plume with mach diamonds during a test firing." %}
     {% include "image-3.html" %}
@@ -77,18 +81,27 @@ The combustor was largely designed for removable sample access, with minimal cha
 
 <h2 id="fluids">Fluid Systems</h2>
 
+<p>
+I was fortunate to have the experience of designing hydrogen, oxygen, kerosene, and hydrogen peroxide propellant systems during my time at Purdue. Most of these systems operated at pressures up to 40&nbsp;MPa with flow rates of around 0.5&nbsp;kg/s. I also designed high pressure nitrogen pressurization systems for the liquid propellants and purges for every propellant feed system. The fluid system buildup took place in two iterations, with the first one focusing on high pressure kerosene and hydrogen peroxide systems. Hydrogen and oxygen systems were added for the FFOKCDC igniter. FFOKCDC also required water cooling, so I built a 6&nbsp;MPa, 10&nbsp;kg/s water feed system. Some representative process and instrumentation diagrams (P&amp;IDs) are shown below.
+</p>
+
 {% with left_src="/static/img/projects/liquid-rocketry/pid-h2.jpg", left_caption="Hydrogen P&ID for combustor and igniter.", center_src="/static/img/projects/liquid-rocketry/pid-n2.jpg", center_caption="P&ID for nitrogen pressurization and purge.", right_src="/static/img/projects/liquid-rocketry/pid-h2o.jpg", right_caption="High flow, high pressure water cooling P&ID." %}
     {% include "image-3.html" %}
 {% endwith %}
+
+<p>
+Most of the feed system buildup fell on my shoulders, since graduate student labor is considered fairly cheap. I had lab engineer oversight, graduate student design help, and undergraduate build help throughout my four years with Purdue, all of which enabled this project's success. I have become more than familiar with flow devices, process design, and construction practices since I had four years to get all of my fabrication mistakes out of the way.
+</p>
 
 {% with left_src="/static/img/projects/liquid-rocketry/stand-panel-components.jpg", left_caption="Components for nitrogen panel, preparing for build.", right_src="/static/img/projects/liquid-rocketry/stand-panel-built.jpg", right_caption="Nitrogen panel assembled with room for expansion." %}
     {% include "image-2.html" %}
 {% endwith %}
 
+
 <h2 id="structures">Structure</h2>
 
 <p>
-
+I was fortunate to find two 60&nbsp;MPa stainless steel tanks in a back shed at Purdue that could be used as kerosene and hydrogen peroxide propellant tanks. I desigend and built a tank stand to house them. At 150&nbsp;kg each they were more than difficult to raise into place; there's a story for how that happened in a test cell with no forklift  or engine hoist access. Now in place, the tank stand acts as the main structure for propellant feed system installation within the test cell, and has serviced over 10 different projects within a few years of operation, with plenty more projects to come!
 </p>
 
 {% with left_src="/static/img/projects/liquid-rocketry/stand-tanks-empty.jpg", left_caption="Welding completed for the tank stand.", center_src="/static/img/projects/liquid-rocketry/stand-tanks-full.jpg", center_caption="Tank stand installed in test cell.", right_src="/static/img/projects/liquid-rocketry/pid-fuel.jpg", right_caption="Kerosene P&ID with legend omitted." %}
@@ -97,6 +110,10 @@ The combustor was largely designed for removable sample access, with minimal cha
 
 
 <h2 id="electrical">Electronics/Control</h2>
+
+<p>
+The data acquisition and control system for the test cell was largely in place from previous testing. It used a series of National Instruments SCXI chassis with valve, pressure transducer, and thermocouple circuits patched into a test cell junction box. I expanded the number of thermocouples by 64 to accomodate inverse heat transfer measurements and improved the control system to include hardware timing for autosequence and redline controls. The LabVIEW code consisted of a Zucrow-based program which enabled rapid control, acquisition, and front panel buildup. The example front panel below could be created (frontend, backend, autosequence, and redlines) by an experienced engineer in less than 4&nbsp;hours despite having 10s of pneumatic valves, pressure transducers, thermocouples, and a load cell.
+</p>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task1-panel.jpg", image_caption="LabVIEW VI front panel for kerosene and hydrogen peroxide combustor." %}
     {% include "image-1.html" %}
