@@ -8,10 +8,7 @@
 <div class="row">
 <div class="col-xl-6">
     <p>
-    Formula SAE is an international competition where student teams design, fabricate, and race cars to a set of rules called the formula. Bulldogs Racing is Yale University's chapter of Formula SAE, which has competed in some form of the competition since 2007. During my first year with the team we competed at the Formula SAE Hybrid competition, taking 3rd place in 2014. We converted to an all-electric team for my last year and a half.
-    </p>
-    <p>
-    From 2015-2016 I was Chief Engineer of the <a href="#team">team</a>, during which time I led design and fabrication of the suspension, steering, brakes, and chassis portions of the car. My approach for vehicle dynamics design started at the <a href="#tires">tires</a>, then worked through <a href="#suspension">suspension</a> and <a href="#chassis">chassis</a>, and finished with <a href="#steering">steering</a> and <a href="#brakes">brakes</a>.
+    I spent most of my PhD studying carbon deposits in film cooled liquid rocket engines. My arrival at Purdue conveniently coincided with the start of a test program. I was greeted with a completely empty test cell that had just been refloored and a set of program goals promised in my advisor's funded proposal. My first year was spent designing and building <a href="#fluids">fluids</a>, <a href="#structures">structural</a>, and <a href="#electrical">electrical</a> systems to support combustor testing. In parallel, I created a 4&nbsp;MPa heat-sink cooled <a href="#task1">kerosene and hydrogen peroxide combustor</a> to fulfill the requirements set forth in our statement of work. I led buildup, testing, and data analysis while taking on a project manager role for the experimental side of the program. During that test program, I designed a 20&nbsp;MPa water cooled <a href="#task4">kerosene and oxygen combustor</a> to more closely approach the conditions expected in a staged combustion engine. I was able to complete checkout testing on this higher pressure combustor, but funding ran out before the full test matrix could be finished.
     </p>
 </div>
 <div class="col-xl-1"></div>
@@ -24,15 +21,23 @@
 </div>
 
 
-<h2>Kerosene and H<sub>2</sub>O<sub>2</sub> Combustor</h2>
+<h2 id="task1">Kerosene and H<sub>2</sub>O<sub>2</sub> Combustor</h2>
 
 <p>
+The kerosene and hydrogen peroxide combustor (unaffectionately named the "Task&nbsp;1" combustor) was designed to investigate carbon deposits in a film cooled combustor. Most rocket engines use fuel film cooling to keep the metal walls cool from typically greater than 3500&nbsp;K flame temperatures. Kerosene fuels form carbon deposits on the metal chamber walls, which further insulate the walls from hot chamber gases. Most kerosene-based rocket engines use film cooling and account for it in their design, but none account for carbon deposit insulation on the wall, nor try to promote deposition for further insulation. This combustor was designed with a removable annular sample in a heat-sink cooled copper chamber such that the carbonaceous deposits could be analyzed after testing.
+</p>
 
+<p>
+Flow through the combustor started with 90wt% hydrogen peroxide injected through a 25&nbsp;mm inner diameter silver-based catalyst bed to decompose the H<sub>2</sub>O<sub>2</sub> to approximately 1030&nbsp;K hot oxygen and steam. An orifice plate with 16&nbsp;holes prevented backflow of carbon-containing combustion products that could be caused by small pressure instabilities in the combustion chamber. After a slight contraction in the chamber diameter, fuel was radially injected through four holes into the hot oxygen and steam flow to promote mixing at a stoichiometric mixture ratio of 7.25. A rearward-facing axisymmetric step further promoted mixing while acting as a flame holder, increasing the internal dimaeter from 20 to 30&nbsp;mm. A thin yttria-stabilized zirconia thermal barrier coating protected the flame holder section of the combustor from the high-enthalpy combustion gases, which had temperatures up to 2800&nbsp;K when operated near stoichiometric conditions. Downstream of the step, a fuel film injector introduced a low-velocity annular kerosene flow through a thin axisymmetric gap to cool the inner wall of an annular sample chamber liner. The sample length was long enough that phase transition and carbon deposition from the fuel film occurred on the sample. A graphite converging-divergizing nozzle with a 114&nbsp;mm throat diameter choked the flow to achieve chamber pressures up to 4.8&nbsp;MPa
 </p>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task1-cad.jpg", image_caption="CAD cross section of kerosene and hydrogen peroxide combustor." %}
     {% include "image-1.html" %}
 {% endwith %}
+
+<p>
+The combustor was operated in two modes: monopropellant and bipropellant mode. In monopropellant mode only hydrogen peroxide propellant was injected through the catalyst bed, while high pressure nitrogen was purged through the fuel injectors to prevent backflow of hot oxygen. Chamber pressures for monopropellant mode were approximately half those of bipropellant mode. The main fuel and fuel film injector were switched to kerosene during bipropellant mode, which always followed a brief period of monopropellant mode to verify catalyst bed operation. The shutdown procedure consisted of purging nitrogen through the fuel orifices first, followed by hydrogen peroxide shutdown second, all occurring within a few tenths of a second. Total test times were typically capped at around 15&nbsp;seconds, although later testing in a vacuum chamber completed test times up to 30&nbsp;seconds.
+</p>
 
 <div class="row d-flex justify-content-center">
     <div class="col-lg-2"></div>
@@ -47,12 +52,20 @@
     <div class="col-lg-2"></div>
 </div>
 
+<p>
+The combustor was largely designed for removable sample access, with minimal chamber pressure and hardware temperature measurements. However, fifty thermocouples were added halfway through the test matrix to allow for inverse heat transfer measurements of heat flux, heat transfer coefficient, and carbon deposit properties. The thermocouples were adhered into blind holes within the chamber, with consistent thermal contact resistance achieved at the thermocouple tips. I published a <a href="https://doi.org/10.2514/1.B38275">journal paper</a> detailing how this 1D inverse problem could be solved in real time through a method that took advantage of a constant Jacobian matrix.
+</p>
+
 {% with left_src="/static/img/projects/liquid-rocketry/task1-stand.jpg", left_caption="Kerosene and hydrogen peroxide combustor on the stand.", right_src="/static/img/projects/liquid-rocketry/task1-upgrade.jpg", right_caption="Upgraded combustor for inverse heat transfer." %}
     {% include "image-2.html" %}
 {% endwith %}
 
 
-<h2>Kerosene and O<sub>2</sub> Combustor</h2>
+<h2 id="task4">Kerosene and O<sub>2</sub> Combustor</h2>
+
+<p>
+
+</p>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task4-cad.jpg", image_caption="CAD cross section of kerosene-oxygen combustor." %}
     {% include "image-1.html" %}
@@ -62,7 +75,7 @@
     {% include "image-3.html" %}
 {% endwith %}
 
-<h2>Fluid Systems</h2>
+<h2 id="fluids">Fluid Systems</h2>
 
 {% with left_src="/static/img/projects/liquid-rocketry/pid-h2.jpg", left_caption="Hydrogen P&ID for combustor and igniter.", center_src="/static/img/projects/liquid-rocketry/pid-n2.jpg", center_caption="P&ID for nitrogen pressurization and purge.", right_src="/static/img/projects/liquid-rocketry/pid-h2o.jpg", right_caption="High flow, high pressure water cooling P&ID." %}
     {% include "image-3.html" %}
@@ -72,7 +85,7 @@
     {% include "image-2.html" %}
 {% endwith %}
 
-<h2>Structure</h2>
+<h2 id="structures">Structure</h2>
 
 <p>
 
@@ -83,7 +96,7 @@
 {% endwith %}
 
 
-<h2>Electronics/Control</h2>
+<h2 id="electrical">Electronics/Control</h2>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task1-panel.jpg", image_caption="LabVIEW VI front panel for kerosene and hydrogen peroxide combustor." %}
     {% include "image-1.html" %}
