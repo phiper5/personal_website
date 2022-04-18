@@ -47,6 +47,11 @@
     <div class="col-lg-2"></div>
 </div>
 
+{% with left_src="/static/img/projects/liquid-rocketry/task1-stand.jpg", left_caption="Kerosene and hydrogen peroxide combustor on the stand.", right_src="/static/img/projects/liquid-rocketry/task1-upgrade.jpg", right_caption="Upgraded combustor for inverse heat transfer." %}
+    {% include "image-2.html" %}
+{% endwith %}
+
+
 <h2>Kerosene and O<sub>2</sub> Combustor</h2>
 
 {% with image_src="/static/img/projects/liquid-rocketry/task4-cad.jpg", image_caption="CAD cross section of kerosene-oxygen combustor." %}
@@ -79,5 +84,9 @@
 
 
 <h2>Electronics/Control</h2>
+
+{% with image_src="/static/img/projects/liquid-rocketry/task1-panel.jpg", image_caption="LabVIEW VI front panel for kerosene and hydrogen peroxide combustor." %}
+    {% include "image-1.html" %}
+{% endwith %}
 
 {% endblock %}
