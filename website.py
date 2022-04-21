@@ -23,8 +23,8 @@ projects = [ \
         ]
 
 @app.route('/')
-def page_home():
-    return render_template('home.html', title='Home')
+def page_about_me():
+    return render_template('about_me.html', title='About Me')
 
 @app.route('/projects')
 def page_projects():
