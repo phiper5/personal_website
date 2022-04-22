@@ -11,15 +11,17 @@ projects = [ \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
         #"Propellant Chemistry", \
+        #"Computer Vision", \
+        #"Computational Fluid Dynamics", \
+        #"Bluetooth Headphones", \
         #"Analytical Chemistry", \
         #"CELI Fellow", \
+        #"MATLAB CEA", \
+        #"Altitude Solver", \
         #"Surf CV", \
         #"Vehicle CV", \
         #"Incompressible CFD", \
         #"Hypergolic Combustion CFD", \
-        #"MATLAB CEA", \
-        #"Altitude Solver", \
-        #"Bluetooth Headphones", \
         ]
 
 @app.route('/')
@@ -47,6 +49,10 @@ def page_project_names(project_name):
 @app.route('/outdoors')
 def page_outdoors():
     return render_template('outdoors.html', title='Outdoors')
+
+@app.route('/googlea920b76c17f050ca.html')
+def google_verification():
+    return render_template('/googlea920b76c17f050ca.html', title='Test')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
