@@ -10,10 +10,10 @@ projects = [ \
         "Liquid Rocketry", \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
-        #"Propellant Chemistry", \
-        #"Computer Vision", \
-        #"Computational Fluid Dynamics", \
-        #"Bluetooth Headphones", \
+        "Propellant Chemistry", \
+        "Computer Vision", \
+        "Computational Fluid Dynamics", \
+        "Bluetooth Headphones", \
         #"Analytical Chemistry", \
         #"CELI Fellow", \
         #"MATLAB CEA", \
@@ -52,7 +52,7 @@ def page_outdoors():
 
 @app.route('/googlea920b76c17f050ca.html')
 def google_verification():
-    return render_template('/googlea920b76c17f050ca.html', title='Test')
+    return render_template('/google-verification.html', title='Test')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

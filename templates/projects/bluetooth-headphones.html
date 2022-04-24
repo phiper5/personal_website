@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<h1>Bluetooth Headphones</h1>
+
+<div class="row">
+<div class="col-xl-6">
+    <p>
+    While an undergraduate at Yale University, I worked as a Design Aide at the Center for Engineering Innovation &amp; Design (CEID). Professor Joseph Zinter, Assistant Director of the CEID, recruited me to design bluetooth headphones that could be used as a project in his ENAS 400 Making It class. Professor Zinter had recently conceived ENAS 400 as a CEID-based class and I had the opportunity to help develop a small part of it for his first time teaching it. The class description states: "Positioned at the intersection of design, technology, and entrepreneurship, students are introduced to the many facets of product design and development while simultaneously working to conceive and develop a marketable product and business." The goal for the bluetooth headphones was to give students technical experience with a fast-paced project incorporating design, electronics, and programming in a short 1-2 week teaching module. It had to be cheaply and swiftly manufacturable as well as buildable with CEID facilities such as the electronics station, machine shop, plastic 3D printers, and laser cutter. I developed the electronics (schematics/PCBs) and baseline code for the headphones while regularly interfacing with Professor Zinter on his pedagogical vision for the project.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex align-items-center">
+    <figure>
+    <img class="image-filled pb-1 lazy" data-src="/static/img/projects/bluetooth-headphones/headphones.jpg">
+    <figcaption>Fully fabricated bluetooth headphones.</figcaption>
+    </figure>
+</div>
+</div>
+
+<p>
+Bluetooth headphones seem fairly simple from the outside, but require a fair number of electronic components to function properly. I designed the headphones to use a lithium cobalt oxide cell which operated from 2.5 to 4.2&nbsp;V with a MAX1555 charging integrated circuit that could be powered by a USB 2.0 Micro-B connector. Due to the varying voltage of a lithium ion cell, I incorporated at TPS61041 boost converter to output a steady 5&nbsp;V for the microcontroller and bluetooth module. Most components were sourced in through-hole packages to simplify the students' manufacturing process at the cost of creating bulkier headphones. However, a few surface mount components were included to familiarize students with a technology that is much more common in production devices (and save some circuit board space!).
+</p>
+
+{% with left_src="/static/img/projects/bluetooth-headphones/schematic-battery.jpg", left_caption="Battery and charging schematic.", right_src="/static/img/projects/bluetooth-headphones/schematic-boost.jpg", right_caption="Boost converter for increasing the battery voltage." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
+<p>
+A commercial off-the-shelf bluetooth module and Arduino Nano comprised the core of the bluetooth headphones. I designed a printed circuit board&nbsp;(PCB) to house the electronics in one half of the headphones, while the other half contained the lithium ion battery. Maximal physical user interaction was requested for the esign, so I implemented buttons for volume control and a headphone jack to bypass the bluetooth module. I located all components on the top side of a two-layer PCB such that a large ground plane could dominate the bottom half of the board to help preserve audio signal quality. As another measure for signal quality preservation, I matched trace and cable impedances from the bluetooth module to the speakers. The Arduino Nano was not strictly necessary for the design features requested, but I included it as a way for students to practice programming of minor features like power and charge LEDs.
+</p>
+
+{% with left_src="/static/img/projects/bluetooth-headphones/schematic-main.jpg", left_caption="Arduino and bluetooth module schematic.", center_src="/static/img/projects/bluetooth-headphones/pcb-top.jpg", center_caption="PCB designed to fit in headphones.", right_src="/static/img/projects/bluetooth-headphones/pcb-bottom.jpg", right_caption="Ground plane on the bottom of the PCB." %}
+    {% include "image_3.html" %}
+{% endwith %}
+
+{% endblock %}

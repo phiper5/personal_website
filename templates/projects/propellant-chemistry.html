@@ -5,10 +5,56 @@
 
 <h1>{{ title }}</h1>
 
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/propellant-chemistry/performance.jpg", left_caption="Specific impulse of oxidizers at P<sub>c</sub>=7&nbsp;bar, &epsilon;=60.", right_src="/static/img/projects/propellant-chemistry/frozen-propellant.jpg", right_caption="Frozen N<sub>2</sub>O<sub>4</sub> (left) and MON (right)." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
+
 <h2>Synthesis Stand</h2>
+
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/propellant-chemistry/stand-pid.jpg", left_caption="P&ID for MON synthesis.", right_src="/static/img/projects/propellant-chemistry/stand-overview.jpg", right_caption="MON synthesis stand overview." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
 
 <h2>Concentration Verification</h2>
 
+<p>
+
+</p>
+
+{% with image_src="/static/img/projects/propellant-chemistry/concentration-verification.jpg", image_caption="Conversion of N<sub>2</sub>O<sub>3</sub> to NO<sub>2</sub>and N<sub>2</sub>O<sub>4</sub> via oxygen addition." %}
+    {% include "image_1.html" %}
+{% endwith %}
+
+
 <h2>Vapor Pressure Measurements</h2>
+
+<p>
+
+</p>
+
+{% with left_src="/static/img/projects/propellant-chemistry/pressure-comparison.jpg", left_caption="Vapor pressure comparison with journal paper data.", right_src="/static/img/projects/propellant-chemistry/pressure-data.jpg", right_caption="A polynomial vapor pressure fit to our data." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
+<p>
+
+</p>
+
+{% with image_src="/static/img/projects/propellant-chemistry/pressure-fit.jpg", image_caption="The MON vapor pressure fit plotted across our data's range." %}
+    {% include "image_1.html" %}
+{% endwith %}
+
+
+<h2>The Team</h2>
 
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<h1>Computer Vision</h1>
+
+<h2>Intelligent Ground Vehicle Competition</h2>
+
+{% with image_src="/static/img/projects/computer-vision/igvc-sensor-diagram.jpg", image_caption="Simplified sensor and data flow diagram for the self-driving vehicle." %}
+    {% include "image_1.html" %}
+{% endwith %}
+
+{% with left_src="/static/img/projects/computer-vision/igvc-hyperbolic-mirror.jpg", left_caption="Side view of the hyperbolic mirror setup.", right_src="/static/img/projects/computer-vision/igvc-typical-image.jpg", right_caption="Typical image taken through hyperbolic mirror setup." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
+{% with left_src="/static/img/projects/computer-vision/igvc-hyperbolic-before.jpg", left_caption="GUI for hyperbolic camera calibration.", right_src="/static/img/projects/computer-vision/igvc-hyperbolic-after.jpg", right_caption="A corrected image from the hyperbolic mirror setup." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<h1>Computational Fluid Dynamics</h1>
+
+<h2>Lid Driven Cavity Flow</h2>
+
+{% with left_src="/static/img/projects/computational-fluid-dynamics/lid-equations-conservation.jpg", left_caption="Momentum conservation equations simplification.", right_src="/static/img/projects/computational-fluid-dynamics/lid-equations-stream.jpg", right_caption="Discretized stream equation used by solver." %}
+    {% include "image_2.html" %}
+{% endwith %}
+
+{% with image_src="/static/img/projects/computational-fluid-dynamics/lid-ghia-comparison.jpg", image_caption="Comparison of my solver's results with values from literature." %}
+    {% include "image_1.html" %}
+{% endwith %}
+
+{% endblock %}
