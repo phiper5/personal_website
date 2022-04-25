@@ -56,12 +56,9 @@ def page_project_names(project_name):
 def page_outdoors():
     return render_template('outdoors.html', title='Outdoors')
 
-@app.route('/googlea920b76c17f050ca.html')
-def google_verification():
-    return render_template('/google-verification.html', title='Test')
-
 @app.route('/robots.txt')
 @app.route('/sitemap.txt')
+@app.route('/googlea920b76c17f050ca.html')
 def static_from_root():
     print(app.static_folder)
     return send_from_directory(app.static_folder, request.path[1:])
