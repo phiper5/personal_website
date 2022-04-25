@@ -6,7 +6,10 @@
 <h1>{{ title }}</h1>
 
 <p>
-
+Near the end of my PhD I teamed up with two graduate student labmates as part of a research-based class to develop a synthesis stand for mixed oxides of nitrogen&nbsp;(MON), which is a mixture of nitrogen tetroxide&nbsp;(N<sub>2</sub>O<sub>4</sub>) and nitric oxide&nbsp;(NO). We designed the stand with a high level of safety in mind by wearing positive pressure suits, placing the stand in a fumehood, and locating the fumehood in a labspace kept at negative pressure. The MON was created from lab-grade stock chemicals that had nitrogen, carbon dioxide, and other impurities; we had to come up with a process and procedures to purify the stock chemicals while making MON since the finished product was being used for property measurement and eventual publication. We also created a system for very accurately measuring the vapor pressure of MON across a wide range of compositions and temperatures, and found that our data filled a gap in the (limited) MON vapor pressure literature that was mostly published during the Space Race era.
+</p>
+<p>
+Nitrogen tetroxide is a dimer of nitrogen dioxide&nbsp;(NO<sub>2</sub>), with equilibrium determining gas phase concentrations. Since the dimerization reaction is endothermic, higher temperatures push equilibrium towards more NO<sub>2</sub>, which causes the brown-red color that is typically associated with nitrogen tetroxide. Note that most of the liquid remains N<sub>2</sub>O<sub>4</sub>. This two phase and (largely) two molecule system becomes considerably more complex when introducing NO. The liquid becomes a mixture of mostly N<sub>2</sub>O<sub>4</sub> and nitrogen trioxide&nbsp;(N<sub>2</sub>O<sub>3</sub>) while the gas phase contains mostly NO and NO<sub>2</sub>. Mixed oxides of nitrogen is a range of chemical propellants with varying concentrations of N<sub>2</sub>O<sub>3</sub> from 0% (pure N<sub>2</sub>O<sub>4</sub> or MON-0) to 100% (MON-39.5). The number after MON identifies the weight percentage of gaseous NO added to N<sub>2</sub>O<sub>4</sub>, thus forming N<sub>2</sub>O<sub>3</sub>, despite the liquid containing only trace quantities of NO. MON is typically quoted as having a higher specific impulse&nbsp;(I<sub>sp</sub>) than similar oxidizers (such as pure N<sub>2</sub>O<sub>4</sub>), but that doesn't account for the requisite increases in chamber size/complexity needed to mitigate MON's rough combustion with monomethyl hydrazine&nbsp;(MMH), as well as the difficulties of two phase flow in injectors that often have start transients in the vacuum of space.
 </p>
 
 {% with left_src="/static/img/projects/propellant-chemistry/performance.jpg", left_caption="Specific impulse of oxidizers at P<sub>c</sub>=7&nbsp;bar, &epsilon;=60.", right_src="/static/img/projects/propellant-chemistry/frozen-propellant.jpg", right_caption="Frozen N<sub>2</sub>O<sub>4</sub> (left) and MON (right)." %}
@@ -17,21 +20,25 @@
 <h2>Synthesis Stand</h2>
 
 <p>
-
+We used the synthesis stand to combine N<sub>2</sub>O<sub>4</sub> and NO in a glass sample vessel to produce MON, where composition was determined gravimetrically by disconnecting and weighing the vessel between chemical additions. The entire system was purged with ultra‑high purity nitrogen&nbsp;(&gt;99.999%), after which N<sub>2</sub>O<sub>4</sub> or NO were used to purge the nitrogen. The purpose of this method was to prevent water contamination of the synthesis stand and vessel. N<sub>2</sub>O<sub>4</sub> addition began only after the sample vessel was purged and vacuumed to less than 1&nbsp;ppm nitrogen, and less than 1&nbsp;ppt air. We distilled N<sub>2</sub>O<sub>4</sub> into the chilled sample vessel until the vessel’s thermocouple tip was submerged in liquid N<sub>2</sub>O<sub>4</sub>. After weighing and purging procedures, we added high pressure gaseous NO while stirring vigorously, never allowing the vessel pressure to exceed the NO source pressure. An isolated NO buffer tank was used as the NO source such that its pressure drop (and known volume) could be used to approximate NO addition mass during transfer. However, actual NO mass was measured gravimetrically after the NO addition procedure was completed. After NO addition, we froze the sample and pulled vacuum on the headspace to remove non‑reacting impurities.
 </p>
 
 {% with left_src="/static/img/projects/propellant-chemistry/stand-pid.jpg", left_caption="P&ID for MON synthesis.", right_src="/static/img/projects/propellant-chemistry/stand-overview.jpg", right_caption="MON synthesis stand overview." %}
     {% include "image_2.html" %}
 {% endwith %}
 
-
-<h2>Concentration Verification</h2>
-
 <p>
-
+We used an isopropyl alcohol&nbsp;(IPA) bath to control the synthesis vessel temperature. From a safety perspective, our group has previously found IPA not to be hypergolic with N<sub>2</sub>O<sub>4</sub>, although it does slowly react. N<sub>2</sub>O<sub>4</sub> is hypergolic with other common heat transfer fluids, such as limonene. A copper heat transfer coil and Thermo Fisher Scientific Haake Arctic A40 chiller were used to control the IPA bath temperature. Crushed dry ice and room temperature IPA were used to rapidly decrease and increase the bath temperature when needed. We collected data starting with N<sub>2</sub>O<sub>4</sub> and working our way to higher MON compositions. For each selected MON composition, we would measure vapor pressure at selected temperatures starting at the freezing point or 233&nbsp;K, whichever was higher, until reaching 303&nbsp;K.
 </p>
 
-{% with image_src="/static/img/projects/propellant-chemistry/concentration-verification.jpg", image_caption="Conversion of N<sub>2</sub>O<sub>3</sub> to NO<sub>2</sub>and N<sub>2</sub>O<sub>4</sub> via oxygen addition." %}
+
+<h2>Composition Verification</h2>
+
+<p>
+Military specification MIL-PRF-26539F outlines a method for measuring MON composition by gaseous oxygen addition using a semi-empirical formula that accounts for equilibrium oxygen dissolution. I implemented the specification's apparatus such that oxygen could be added slowly to the headspace of a vigorously stirred MON sample to oxidize it back to N<sub>2</sub>O<sub>4</sub>. The sample was maintained at 273&nbsp;K throughout the process by an ice water bath. Sample color change from blue/green to orange occurred rapidly in the N<sub>2</sub>O<sub>4</sub> to MON-3 range, whereas little color change was observed in for MON compositions greater than MON-3. Oxidation was considered complete approximately 10&nbsp;minutes after the color change occurred. We compared MON compositions calculated from the military specification with those determined by our synthesis stand gravimetric method. The oxygen addition method overpredicted MON compositions near MON-0 and underpredicted compositions above MON-3. We postulated that the oxygen addition method's issue was likely related to inadequate oxygen solubility data incorporated into its semi-empirical equation.
+</p>
+
+{% with image_src="/static/img/projects/propellant-chemistry/composition-verification.jpg", image_caption="Oxidation of NO and N<sub>2</sub>O<sub>3</sub> to NO<sub>2</sub> and N<sub>2</sub>O<sub>4</sub> via oxygen addition." %}
     {% include "image_1.html" %}
 {% endwith %}
 
@@ -39,22 +46,25 @@
 <h2>Vapor Pressure Measurements</h2>
 
 <p>
-
+Our team measured equilibrium MON vapor pressures with uncertainties in pressure, composition, and temperature across a wide range of compositions and temperatures. Our data is the most accurate and precise to date, and will help satellite engineers more accurately account for equilibrium pressures in their MON feed systems. The vapor pressure of N<sub>2</sub>O<sub>4</sub> has been measured and confirmed by several investigators across a wide range of temperatures whereas the vapor pressure of MON has received considerably less attention and has a wider variance across publications. The number of independent variables for MON is also larger than that for N<sub>2</sub>O<sub>4</sub> since composition can be varied as well as temperature, and both oxidizers have unusual vapor pressures that don't follow typical Clausius-Clapeyron curves.
 </p>
 
-{% with left_src="/static/img/projects/propellant-chemistry/pressure-comparison.jpg", left_caption="Vapor pressure comparison with journal paper data.", right_src="/static/img/projects/propellant-chemistry/pressure-data.jpg", right_caption="A polynomial vapor pressure fit to our data." %}
+{% with left_src="/static/img/projects/propellant-chemistry/pressure-comparison.jpg", left_caption="Our vapor pressure data (PJTT20) vs. past authors.", right_src="/static/img/projects/propellant-chemistry/pressure-data.jpg", right_caption="A polynomial vapor pressure fit to some of our data." %}
     {% include "image_2.html" %}
 {% endwith %}
 
 <p>
-
+We used a purely empirical polynomial fit to interpolate between our data points because a Clausius-Clapeyron approach, even with higher order terms, was too restrictive for the MON system. The primary goal with our fit was to compare with previous literature within the bounds of our independent variable range, as opposed to predicting vapor pressure outside of our range. All fit residuals were less than 10&nbsp;mbar, with 95% of the residuals less than 5&nbsp;mbar. The high order polynomial, with 20 coefficients, did not overfit our 94 point data set. The fit’s root mean squared error&nbsp;(RMSE) of 3.0&nbsp;mbar approached, but was not below, our pressure transducer uncertainty of 2.8&nbsp;mbar. We used a 100,000 point Monte Carlo method to determine the uncertainty of our fit coefficients, thus propagating our composition and temperature uncertainties through the fit to vapor pressure. We expected the fit error to be highest near the edges of our data set where there are less points.
 </p>
 
-{% with image_src="/static/img/projects/propellant-chemistry/pressure-fit.jpg", image_caption="The MON vapor pressure fit plotted across our data's range." %}
+{% with image_src="/static/img/projects/propellant-chemistry/pressure-fit.jpg", image_caption="The MON vapor pressure fit (left) plotted across our data's range, with uncertainties on the right." %}
     {% include "image_1.html" %}
 {% endwith %}
 
 
 <h2>The Team</h2>
+
+<p>
+We had a stellar team of scientists and engineers on this and adjacent MON projects. Jeremy, Taylor, and I were the principal investigators for the synthesis stand development and vapor pressure measurements. Dr. Pourpoint secured funding for the work and provided high level guidance to our team. Jason oversaw safety aspects of our work and completely rebuilt our synthesis stand design in a smaller footprint to save fumehood space. Alicia worked on measurements for other MON properties, providing guidance to us in return for highly accurate MON samples. Angelo, Jonathan, and Yash helped with initial synthesis stand design and development. Overall, our team was able to enable measurements of many MON properties by providing MON samples with low composition uncertainties.
 
 {% endblock %}
