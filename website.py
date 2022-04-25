@@ -1,18 +1,24 @@
 #!/usr/bin/python3
 
 from flask import Flask, render_template, abort
+import glob
+import argparse
 
 # Create the application host
 app = Flask(__name__)
 
+# Base URL
+base = 'https://phiper.pythonanywhere.com'
+
+# Project webpages
 projects = [ \
         "Big Friendly Flame", \
         "Liquid Rocketry", \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
         "Propellant Chemistry", \
-        "Computer Vision", \
-        "Computational Fluid Dynamics", \
+        #"Computer Vision", \
+        #"Computational Fluid Dynamics", \
         "Bluetooth Headphones", \
         #"Analytical Chemistry", \
         #"CELI Fellow", \
@@ -54,5 +60,34 @@ def page_outdoors():
 def google_verification():
     return render_template('/google-verification.html', title='Test')
 
+def generate_sitemap():
+    # Get webpages
+    pages_rel = ['', '/projects', '/outdoors'] \
+            + ['/projects/'+x.lower().replace(' ', '-') for x in projects]
+
+    # Get images/videos
+    file_types = ['jpg', 'mp4']
+    media_rel = ['/'+f for f_ in \
+            [glob.glob('**/*.'+ext, recursive=True) for ext in file_types] \
+            for f in f_]
+
+    # Make URLs absolute and join into string
+    pages_abs = [base + page for page in pages_rel+media_rel]
+    str_sitemap = '\n'.join(pages_abs)
+
+    # Write the data
+    with open('sitemap.txt', 'w') as f:
+        f.write(str_sitemap)
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    # Set up the argument parser
+    parser = argparse.ArgumentParser(description='Run the website server.')
+    parser.add_argument('-g', '--generate-sitemap', \
+            help='Generate a sitemap file', action='store_true')
+    args = parser.parse_args()
+
+    # Generate a sitemap or run the web host
+    if args.generate_sitemap:
+        generate_sitemap()
+    else:
+        app.run(host='0.0.0.0', port=8080, debug=False)
