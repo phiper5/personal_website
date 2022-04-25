@@ -17,8 +17,8 @@ projects = [ \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
         "Propellant Chemistry", \
-        "Computer Vision", \
-        "Computational Fluid Dynamics", \
+        #"Computer Vision", \
+        #"Computational Fluid Dynamics", \
         "Bluetooth Headphones", \
         #"Analytical Chemistry", \
         #"CELI Fellow", \
