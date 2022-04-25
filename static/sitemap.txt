@@ -6,6 +6,8 @@ https://phiper.pythonanywhere.com/projects/liquid-rocketry
 https://phiper.pythonanywhere.com/projects/vehicle-dynamics
 https://phiper.pythonanywhere.com/projects/electric-vehicles
 https://phiper.pythonanywhere.com/projects/propellant-chemistry
+https://phiper.pythonanywhere.com/projects/computer-vision
+https://phiper.pythonanywhere.com/projects/computational-fluid-dynamics
 https://phiper.pythonanywhere.com/projects/bluetooth-headphones
 https://phiper.pythonanywhere.com/static/img/santa-barbara.jpg
 https://phiper.pythonanywhere.com/static/img/headshot.jpg

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request, send_from_directory
 import glob
 import argparse
 
@@ -17,8 +17,8 @@ projects = [ \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
         "Propellant Chemistry", \
-        #"Computer Vision", \
-        #"Computational Fluid Dynamics", \
+        "Computer Vision", \
+        "Computational Fluid Dynamics", \
         "Bluetooth Headphones", \
         #"Analytical Chemistry", \
         #"CELI Fellow", \
@@ -60,6 +60,12 @@ def page_outdoors():
 def google_verification():
     return render_template('/google-verification.html', title='Test')
 
+@app.route('/robots.txt')
+@app.route('/sitemap.txt')
+def static_from_root():
+    print(app.static_folder)
+    return send_from_directory(app.static_folder, request.path[1:])
+
 def generate_sitemap():
     # Get webpages
     pages_rel = ['', '/projects', '/outdoors'] \
@@ -76,7 +82,7 @@ def generate_sitemap():
     str_sitemap = '\n'.join(pages_abs)
 
     # Write the data
-    with open('sitemap.txt', 'w') as f:
+    with open(app.static_folder+'/sitemap.txt', 'w') as f:
         f.write(str_sitemap)
 
 if __name__ == '__main__':
