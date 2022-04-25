@@ -17,8 +17,8 @@ projects = [ \
         "Vehicle Dynamics", \
         "Electric Vehicles", \
         "Propellant Chemistry", \
-        #"Computer Vision", \
-        #"Computational Fluid Dynamics", \
+        "Computer Vision", \
+        "Computational Fluid Dynamics", \
         "Bluetooth Headphones", \
         #"Analytical Chemistry", \
         #"CELI Fellow", \
@@ -93,4 +93,4 @@ if __name__ == '__main__':
     if args.generate_sitemap:
         generate_sitemap()
     else:
-        app.run(host='0.0.0.0', port=8080, debug=False)
+        app.run(host='0.0.0.0', port=8080, debug=True)

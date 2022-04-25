@@ -9,24 +9,54 @@
 <h2>Intelligent Ground Vehicle Competition</h2>
 
 <p>
-
+The intelligent ground vehicle competition&nbsp;(IGVC) has undergraduate and graduate students build a small autonomous vehicle to complete various challenges akin to the environment experienced by an autonomous passenger vehicle. I joined Yale's chapter of IGVC, the Yale Undergraduate Intelligent Vehicles&nbsp;(YUIV) team, which was the first Yale IGVC team since 2003. Together, we designed and built a Segway-based vehicle using the Robot Operating System&nbsp;(ROS) architecture in less than nine months for the 2014 IGVC competition.
 </p>
 
 <p>
-
+Our vehicle, named Armstrong, used a combination of HD&nbsp;video, LiDAR, inertial measurement system&nbsp;(IMS), and GPS as data inputs for localization, pose estimation, and path planning software. The IMS was a combination of 3-axis gyros, accelerometers, and magnetometers along with a built-in Kalman filtering algorithm. A higher level goal scheduler fed the path planner travel destinations based on Armstrong's interpretation of lanes and flags. The ROS architecture simplified data transmission between the different system codes, all of which were written in C++ or Python depending on performance requirements and complexity trade-offs. I worked on several parts of Armstrong's measurement systems including system-level ROS design, custom LiDAR firmware development, and IMU integration; however, the majority of my work involved the HD&nbsp;video system.
 </p>
 
 {% with image_src="/static/img/projects/computer-vision/igvc-sensor-diagram.jpg", image_caption="Simplified sensor and data flow diagram for the self-driving vehicle." %}
     {% include "image_1.html" %}
 {% endwith %}
 
-{% with left_src="/static/img/projects/computer-vision/igvc-hyperbolic-mirror.jpg", left_caption="Side view of the hyperbolic mirror setup.", right_src="/static/img/projects/computer-vision/igvc-typical-image.jpg", right_caption="Typical image taken through hyperbolic mirror setup." %}
+<p>
+Our team decided that a single high resolution video camera coupled with a hyperbolic mirror would provide Armstrong with the best vision-based solution that fulfilled IGVC's requirements. The camera was oriented vertically, with the gravity vector, such that reflections from a hyperbolic mirror captured a 360&deg; view of Armstrong's surroundings. This design had high resolution near the vehicle, which was ideal for the low speeds typical of an IGVC vehicle. It also allowed for Armstrong to know its surroundings regardless of vehicle orientation; orientation-specific vision systems often require vehicle rotation sweeps to gather data, which wastes precious time. The camera was rigidly mounted and centered below the mirror with a shade structure to block sunlight and maintain dynamic range on ground elements.
+</p>
+
+{% with left_src="/static/img/projects/computer-vision/igvc-hyperbolic-mirror.jpg", left_caption="Side view of the hyperbolic mirror setup.", right_src="/static/img/projects/computer-vision/igvc-typical-image.jpg", right_caption="Hyperbolic mirror image without shade structure." %}
     {% include "image_2.html" %}
 {% endwith %}
 
-{% with left_src="/static/img/projects/computer-vision/igvc-hyperbolic-before.jpg", left_caption="GUI for hyperbolic camera calibration.", right_src="/static/img/projects/computer-vision/igvc-hyperbolic-after.jpg", right_caption="A corrected image from the hyperbolic mirror setup." %}
-    {% include "image_2.html" %}
-{% endwith %}
+<div class="row">
+<div class="col-xl-6 d-flex align-items-center">
+    <p>
+The main difficulty with our hyperbolic mirror setup was image calibration to Armstrong's rectilinear coordinates on the ground plane. We could have derived a static transformation based on the hyperbolic mirror's shape. However, that would have been dependent on the camera image plane's distance from the mirror. Instead, I opted for a semi-empirical checkerboard-based calibration that assumed axisymmetry, and thus required the mirror to be perpendicular to the ground. Checkerboard corners were selected via OpenCV and manually verified such that the static 1D radial transformation could be recovered from a calibration image independently of the camera's distance from the mirror.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex align-items-center">
+    <figure>
+    <img class="image-filled pb-1 lazy" data-src="/static/img/projects/computer-vision/igvc-hyperbolic-before.jpg">
+    <figcaption>GUI for hyperbolic camera calibration.</figcaption>
+    </figure>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xl-6 d-flex align-items-center">
+    <p>
+A 1D radial transformation would only be accurate if Armstrong drove across perfectly flat planes. I used our IMS and pose estimation data to determine Armstrong's pitch and roll with respect to the ground plane, which was also interpreted as the mirror's pitch. With this data, I could run a 3D transformation based on our 1D calibration, thus accounting for Armstrong's angular orientation with respect to the ground plane. My semi-empirical transformation was most accurate for pixels near Armstrong, where resolution was highest. Trade-offs between image correction performance and accuracy resulted in poor long range performance, although our system's resolution was low for long range pixels anyways.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex align-items-center">
+    <figure>
+    <img class="image-filled pb-1 lazy" data-src="/static/img/projects/computer-vision/igvc-hyperbolic-after.jpg">
+    <figcaption>The corrected image, which has been cropped.</figcaption>
+    </figure>
+</div>
+</div>
 
 
 {% endblock %}
