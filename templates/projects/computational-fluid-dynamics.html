@@ -7,12 +7,50 @@
 
 <h2>Lid Driven Cavity Flow</h2>
 
-{% with left_src="/static/img/projects/computational-fluid-dynamics/lid-equations-conservation.jpg", left_caption="Momentum conservation equations simplification.", right_src="/static/img/projects/computational-fluid-dynamics/lid-equations-stream.jpg", right_caption="Discretized stream equation used by solver." %}
-    {% include "image_2.html" %}
-{% endwith %}
+<p>
+While studying at Purdue, I wrote an incompressible 2D computational fluid dynamics code in Python as a class project for ME&nbsp;614: Computational Fluid Dynamics. I used the lid-driven cavity flow problem to validate my code due to its simple setup and boundary conditions yet complex recirculation patterns that vary with Reynolds number. Data were compared to: Ghia, U., Ghia, K. N., Shin, C. T., “High-Re Solutions for Incompressible Flow Using the Navier-Stokes Equations and a Multigrid Method,” Journal of Computational Physics, Vol. 48, 1982, pp. 387-411.
+</p>
 
-{% with image_src="/static/img/projects/computational-fluid-dynamics/lid-ghia-comparison.jpg", image_caption="Comparison of my solver's results with values from literature." %}
+<div class="row">
+<div class="col-xl-6 d-flex align-items-center">
+    <p>
+The following equations show the non-dimensional, incompressible Navier-Stokes equation. The energy equation was decoupled from the momentum and continuity equations due to the incompressible assumption. This system of equations can be further simplified by using the fractional step method, which decouples the pressure and velocity calculations. Intermediate velocities <i>u*</i> and <i>v*</i> were calculated from the advection terms using an explicit Euler scheme. Then a second set of intermediate velocities <i>u**</i> and <i>v**</i> were calculated from the viscous terms using a spatially implicit and temporally explicit Euler discretization. This two-step velocity predictor method allowed for the use of higher Courant-Friedrichs-Lewy&nbsp;(CFL) numbers than a purely explicit Euler or 2nd order Runge-Kutta&nbsp;(RK2) scheme would have. The cost of being able to use a higher CFL was having to solve two extra linear systems, which was mitigated through the use of an LU decomposition. For approximately two times better performance, a Cholesky decomposition could have been used instead.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex align-items-center">
+    <figure>
+    <img class="image-filled pb-1 lazy" data-src="/static/img/projects/computational-fluid-dynamics/lid-equations-conservation.jpg">
+    <figcaption>Incompressible conservation equation simplification.</figcaption>
+    </figure>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xl-6 d-flex align-items-center">
+    <p>
+    A pressure step was used to enforce a divergence free velocity field, as required by the continuity equation. After calculating the pressure field, a correction step could then calculate the velocity field for the next time step. Lastly, the stream function could then be calculated for contour plot visualization. Three stopping criteria were investigated. The first criterion was to set a time length, which was only really useful for debugging purposes. The RMS change in the velocity field between time steps was used second, and the RMS change in the stream function was the final stopping criterion. A stream function epsilon of 1e-6 was checked against every half second of simulation time, since computing the stream function required an inversion and would have been wasteful if done every iteration. Additionally, a stream function visualization was displayed every half second to enable users to catch problems early in the simulation process.
+    </p>
+</div>
+<div class="col-xl-1"></div>
+<div class="col-xl-5 d-flex align-items-center">
+    <figure>
+    <img class="image-filled pb-1 lazy" data-src="/static/img/projects/computational-fluid-dynamics/lid-equations-stream.jpg">
+    <figcaption>Discretized stream equation used by solver.</figcaption>
+    </figure>
+</div>
+</div>
+
+<p>
+Code validation proceded by comparison of 1D velocity cut plots and 2D stream function contour plots. Note the excellent agreement between my data and Ghia et al. 1982 in the following contour plots for a <i>Re</i>=100 case. My recirculation streamlines are slightly enlarged compared to their Ghia et al. 1982 counterparts. Better agreement could be achieved by reducing the time step, increasing the number of grid points, and decreasing the stream function stopping criterion. A CFL of approximately 0.33 was used, however further testing showed that a CFL numbers as high as 100 converged to results, albeit inaccurate ones due to the large time step. An additional case at <i>Re</i>=1000 was solved with similar comparability to the literature solution.
+</p>
+
+{% with image_src="/static/img/projects/computational-fluid-dynamics/lid-ghia-comparison.jpg", image_caption="Comparison of my solver's results with values from Ghia et al. 1982." %}
     {% include "image_1.html" %}
 {% endwith %}
+
+<p>
+The three step solver was found to perform well, both in terms of accuracy and computation time. The two cases that were run to generate the results took less than 10 minutes. Collocating the pressure and velocity grids decreased the coding and debugging complexity significantly compared to a staggered grid arrangement since only one grid had to be kept up with as opposed to four&nbsp;(<i>u</i>, <i>v</i>, <i>p</i>, and <i>ψ</i>). Additionally, the implicit viscous term prediction step of the solver allowed for high CFL number runs, leading to rapid convergence to steady state. Even higher Reynolds number flows were attempted, but the explicit Euler advection step became a limiting factor. Most of these runs failed even with larger grid sizes. Unfortunately, those that started succeeding had too long of a computation time and would diverge before reaching steady state. Using RK2 with the advection terms instead of explicit Euler would likely fix this problem. Further improvements to the solver could be made in the form of non-uniform grids and more complex rectilinear geometries.
+</p>
 
 {% endblock %}
