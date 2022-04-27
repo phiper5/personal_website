@@ -20,13 +20,12 @@ projects = [ \
         "Computer Vision", \
         "Computational Fluid Dynamics", \
         "Bluetooth Headphones", \
+        #"Inverse Heat Transfer", \
         #"Analytical Chemistry", \
-        #"CELI Fellow", \
         #"MATLAB CEA", \
         #"Altitude Solver", \
+        #"CELI Fellow", \
         #"Surf CV", \
-        #"Vehicle CV", \
-        #"Incompressible CFD", \
         #"Hypergolic Combustion CFD", \
         ]
 
