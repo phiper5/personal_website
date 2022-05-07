@@ -31,7 +31,7 @@ projects = [ \
 
 @app.route('/')
 def page_about_me():
-    return render_template('about_me.html', title='About Me')
+    return render_template('about_me.html', title='Philip Piper')
 
 @app.route('/projects')
 def page_projects():

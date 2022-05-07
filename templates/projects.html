@@ -9,13 +9,8 @@
 </div>
 </div>
 
+<div class="row">
 {% for p_html in project_htmls %}
-    {% if loop.index0 % 4 == 0 %}
-        {% if loop.index0 > 0 %}
-            </div>
-        {% endif %}
-        <div class="row">
-    {% endif %}
     <div class="col-md-6 col-lg-4 col-xl-3 py-3">
         <a href="{{ project_links[loop.index0] }}">
         <div class="image-container">
@@ -25,8 +20,6 @@
         </a>
     </div>
 {% endfor %}
-{% if project_htmls|length > 0 %}
-    </div>
-{% endif %}
+</div>
 
 {% endblock %}
